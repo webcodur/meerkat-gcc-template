@@ -39,7 +39,7 @@ export default function Sidebar() {
 
     return (
         <aside
-            className={`fixed top-0 left-0 h-full w-64 bg-white shadow-lg transition-transform duration-100 ${
+            className={`fixed top-0 left-0 h-full w-64 bg-white shadow-lg transition-transform duration-200 ${
                 isOpen ? 'translate-x-0' : '-translate-x-full'
             }`}
         >

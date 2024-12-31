@@ -17,7 +17,6 @@ import { sidebarOpenAtom } from '@/atoms';
  * 
  * 2. 스타일링
  *    - transition-all: 모든 속성에 대한 전환 효과 적용
- *    - duration-300: 300ms 동안 전환 효과 진행
  *    - p-8: 전체 패딩 2rem (32px)
  * 
  * 참고:
@@ -32,7 +31,7 @@ export default function MainContent({
     const [isOpen] = useAtom(sidebarOpenAtom);
 
     return (
-        <main className={`transition-all duration-300 ${isOpen ? 'ml-64' : 'ml-0'} p-8`}>
+        <main className={`transition-all duration-200 ${isOpen ? 'ml-64' : 'ml-0'} p-8`}>
             {children}
         </main>
     );
