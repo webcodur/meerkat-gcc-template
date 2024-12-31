@@ -1,0 +1,43 @@
+
+# Next.js: Route Handler 우선
+
+- 기본적으로 별도 백엔드 서버가 있습니다.
+- 기타 API 엔드포인트는 Route Handler를 사용하여 구현하세요.
+
+# Next.js 라우팅: App Router
+
+- 프로젝트 내 라우팅은 Pages Router 대신 App Router를 사용하세요.
+
+# 프로젝트 구조: 주요 폴더 구조 예시
+
+- 프로젝트 구조는 다음과 같이 설정하세요. src 폴더는 사용하지 않습니다.
+
+├─app/                   # App Router & Page Layouts
+│ ├─ (auth)/             # 인증 관련 라우트 그룹
+│ ├─ (dashboard)/        # 대시보드 관련 라우트 그룹
+│ └─ api/                # Route Handlers
+├─components/
+│ ├─ common/             # 재사용성 높은 컴포넌트 (도메인 의존도 ↑)
+│ │  └─ [도메인]/        # 도메인별 공통 컴포넌트
+│ ├─ ui/                 # 순수 디자인 컴포넌트 (도메인 의존도 ↓)
+│ └─ view/               # 페이지별 뷰 컴포넌트 (도메인 의존도 ↑)
+│     └─ [도메인]/       # 도메인별 뷰 컴포넌트
+├─public/                # 정적 파일 (빌드 대상 X, 웹 루트(/)로 접근)
+│ assets/                # 빌드 대상 포함 리소스
+│ ├─ icons/
+│ └─ styles/             # DaisyUI 테마 설정 포함
+│ data/  
+│ ├─ constants/          # 상수 값
+│ ├─ mocks/              # 테스트용 데이터
+│ └─ static/             # 정적 데이터 파일 (JSON, CSV, XML)
+├─services/              # 외부 서비스 통신
+│ ├─ api/                # API 클라이언트 & 타입
+│ └─ [외부서비스명]/     # 서비스별 로직
+├─types/                 # 전역 타입 정의
+│ └─ index.ts            # 타입 정의 파일
+├─utils/                 # 순수 유틸리티 함수
+├─hooks/                 # 커스텀 훅스
+├─atoms.ts               # Jotai atoms
+├─.env                   # 환경 변수
+├─middleware.ts          # Next.js 미들웨어
+└─tailwind.config.js     # DaisyUI 설정포함
