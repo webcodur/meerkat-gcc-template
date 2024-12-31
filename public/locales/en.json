@@ -15,5 +15,9 @@
     "theme": "Theme",
     "theme_light": "Light",
     "theme_dark": "Dark",
-    "close": "Close"
+    "close": "Close",
+    "About": {
+        "title": "About Project",
+        "exploreMore": "Explore More"
+    }
 }

@@ -15,5 +15,9 @@
     "theme": "테마",
     "theme_light": "라이트",
     "theme_dark": "다크",
-    "close": "닫기"
+    "close": "닫기",
+    "About": {
+        "title": "프로젝트 소개",
+        "exploreMore": "더 알아보기"
+    }
 }
