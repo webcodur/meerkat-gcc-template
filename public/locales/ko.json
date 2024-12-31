@@ -1,0 +1,15 @@
+{
+    "setting": "설정",
+    "logout": "로그아웃",
+    "login": "로그인",
+    "change_profile": "계정 변경",
+    "account_management": "계정 관리",
+    "sidebar_title": "미어캣-GCC",
+    "sidebar_menu_parking_management": "주차장 관리",
+    "sidebar_menu_user_management": "사이드 메뉴",
+    "Settings": "설정",
+    "language": "언어",
+    "language_en": "영어",
+    "language_ar": "아랍어",
+    "language_ko": "한국어"
+}

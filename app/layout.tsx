@@ -1,8 +1,7 @@
 import type { Metadata } from 'next';
-import './globals.css';
+import '@/app/globals.css';
 import '@/assets/styles/fonts.css';
-import ClientLayout from '@/components/common/ClientLayout';
-import JotaiProviders from '@/components/common/Providers';
+import { useLocale } from 'next-intl';
 
 export const metadata: Metadata = {
     title: '주차 관제 시스템',
@@ -14,13 +13,11 @@ export default function RootLayout({
 }: Readonly<{
     children: React.ReactNode;
 }>) {
+    const locale = useLocale();
+    
     return (
-        <html lang="ko" data-theme="light">
-            <body>
-                <JotaiProviders>
-                    <ClientLayout>{children}</ClientLayout>
-                </JotaiProviders>
-            </body>
+        <html data-theme="light" dir="ltr" lang={locale}>
+            <body>{children}</body>
         </html>
     );
-}
+} 

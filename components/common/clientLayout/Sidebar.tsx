@@ -4,31 +4,47 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { IoCar, IoPeople } from 'react-icons/io5';
 import { useAtom } from 'jotai';
-import { sidebarOpenAtom } from '@/atoms';
+import { sidebarOpenAtom, dirAtom, currentPathAtom } from '@/atoms';
 import { useEffect, useState } from 'react';
-
-const menuItems = [
-    { title: '주차장 관리', path: '/parking', icon: IoCar },
-    { title: '회원 관리', path: '/users', icon: IoPeople },
-];
+import { langAtom } from '@/atoms';
+import { useTranslations } from 'next-intl';
 
 export default function Sidebar() {
-    const pathname = usePathname();
+    const t = useTranslations();
+
+    const menuItems = [
+        { title: t('sidebar_menu_parking_management'), path: '/parking', icon: IoCar },
+        { title: t('sidebar_menu_user_management'), path: '/users', icon: IoPeople },
+    ];
+
     const [isOpen] = useAtom(sidebarOpenAtom);
-    const [currentPath, setCurrentPath] = useState('');
+    const [lang] = useAtom(langAtom);
+    const [dir] = useAtom(dirAtom);
+    
+    const isRTL = dir === 'rtl';
+
+    const pathname = usePathname();
+    
+    const [currentPath, setCurrentPath] = useAtom(currentPathAtom);
     const [mounted, setMounted] = useState(false);
 
     useEffect(() => {
         setMounted(true);
         setCurrentPath(pathname);
-    }, [pathname]);
+    }, [pathname, setCurrentPath]);
+
+    const translateClass = isOpen 
+        ? 'translate-x-0' 
+        : isRTL 
+            ? 'translate-x-full'
+            : '-translate-x-full';
 
     if (!mounted) {
         return (
-            <aside className="fixed top-0 left-0 h-full w-64 bg-white shadow-lg -translate-x-full">
+            <aside className={`fixed top-0 ${isRTL ? 'inset-inline-end-0' : 'inset-inline-start-0'} h-full w-64 bg-white shadow-lg ${isRTL ? 'translate-x-full' : '-translate-x-full'}`}>
                 <div className="p-4">
                     <div className="flex items-center rounded-lg align-center justify-center">
-                        <h1 className="text-xl font-bold mb-4 text-center ml-[50px] text-gray-800  ">
+                        <h1 className="text-xl font-bold mb-4 text-center ms-[50px] text-gray-800">
                             MEERKAT
                         </h1>
                     </div>
@@ -39,14 +55,12 @@ export default function Sidebar() {
 
     return (
         <aside
-            className={`fixed top-0 left-0 h-full w-64 bg-white shadow-lg transition-transform duration-200 ${
-                isOpen ? 'translate-x-0' : '-translate-x-full'
-            }`}
+            className={`fixed top-0 ${isRTL ? 'inset-inline-end-0' : 'inset-inline-start-0'} h-full w-64 bg-white shadow-lg transition-transform duration-200 ${translateClass}`}
         >
             <div className="p-4">
-                <Link href="/" className="flex items-center rounded-lg hover:bg-gray-100 justify-center align-center m-auto mt-[20px], mb-[10px]">
-                    <h1 className="text-xl font-bold text-center p-2 text-gray-800 ">
-                        MEERKAT-AR
+                <Link href="/" className="flex items-center rounded-lg hover:bg-gray-100 justify-center align-center m-auto mt-[20px] mb-[10px]">
+                    <h1 className="text-xl font-bold text-center p-2 text-gray-800">
+                        MEERKAT-{lang}
                     </h1>
                 </Link>
                 <nav>
@@ -63,7 +77,7 @@ export default function Sidebar() {
                                                 : ''
                                         }`}
                                     >
-                                        <Icon className="mr-3 text-xl" />
+                                        <Icon className={`me-3 text-xl`} />
                                         {item.title}
                                     </Link>
                                 </li>
