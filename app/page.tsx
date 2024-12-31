@@ -1,7 +1,7 @@
+import HomeView from '@/components/view/Home';
+
 export default function Home() {
     return (
-        <main>
-            <h1>안녕하세요</h1>
-        </main>
+        <HomeView />
     );
 }
