@@ -4,8 +4,12 @@ import { defaultLocale, locales } from './config';
 export default createMiddleware({
     locales,
     defaultLocale,
-    localePrefix: 'never'  // URL에 locale prefix를 사용하지 않음
+    localePrefix: 'always'
 });
 
 export const config = {
-    matcher: ['/((?!api|_next|.*\\..*).*)']};
+    matcher: [
+        // 다음 경로들을 제외한 모든 경로에 미들웨어 적용
+        '/((?!api|_next|_vercel|.*\\..*).*)',
+    ]
+};

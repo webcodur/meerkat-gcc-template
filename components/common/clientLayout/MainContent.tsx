@@ -36,7 +36,7 @@ export default function MainContent({
         : isRTL ? 'mr-0' : 'ml-0';
 
     return (
-        <main className={`transition-all duration-200 ${marginClass} p-8`}>
+        <main className={`relative z-0 min-h-screen transition-all duration-200 ${marginClass} p-8 pt-20`}>
             {children}
         </main>
     );

@@ -10,13 +10,17 @@ export default function SidebarToggle() {
     const isRTL = dir === 'rtl';
 
     const buttonClasses = [
-        'p-1.5 bg-gray-50/90 backdrop-blur-sm hover:bg-gray-100/90 transition-all duration-200 shadow-sm hover:shadow w-[70px] h-[70px]',
+        'p-1.5 relative bg-gradient-to-br from-gray-300 via-white to-gray-200',
+        'shadow-[0_0_25px_8px_rgba(255,255,255,0.8),inset_0_0_15px_rgba(255,255,255,0.5)]',
+        'transition-all duration-300 cursor-pointer',
+        'w-[100px] h-[100px] border-[3px] border-white',
     ].join(' ');
 
     const iconClasses = [
-        'h-6 w-6 text-gray-700 transition-transform duration-200 absolute',
-        'top-[40%] -translate-y-1/2',
-        isRTL ? 'end-[40%] translate-x-1/2' : 'start-[40%] -translate-x-1/2',
+        'h-8 w-8 text-gray-700 transition-all duration-300 absolute',
+        'drop-shadow-[0_0_8px_rgba(255,255,255,1)]',
+        'top-[30%] -translate-y-1/2',
+        isRTL ? 'end-[30%] translate-x-1/2' : 'start-[30%] -translate-x-1/2',
         isSidebarOpen ? 'rotate-180' : '',
     ].join(' ');
 
@@ -34,7 +38,7 @@ export default function SidebarToggle() {
                 style={{
                     clipPath: isRTL 
                         ? 'polygon(100% 0, 100% 100%, 0 0)' 
-                        : 'polygon(0 0, 0% 100%, 100% 0)'
+                        : 'polygon(0 0, 100% 0, 0 100%)'
                 }}
             >
                 {isRTL ? (

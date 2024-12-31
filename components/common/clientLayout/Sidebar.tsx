@@ -6,7 +6,6 @@ import { IoCar, IoPeople } from 'react-icons/io5';
 import { useAtom } from 'jotai';
 import { sidebarOpenAtom, dirAtom, currentPathAtom } from '@/atoms';
 import { useEffect, useState } from 'react';
-import { langAtom } from '@/atoms';
 import { useTranslations } from 'next-intl';
 
 export default function Sidebar() {
@@ -18,7 +17,6 @@ export default function Sidebar() {
     ];
 
     const [isOpen] = useAtom(sidebarOpenAtom);
-    const [lang] = useAtom(langAtom);
     const [dir] = useAtom(dirAtom);
     
     const isRTL = dir === 'rtl';
@@ -41,11 +39,11 @@ export default function Sidebar() {
 
     if (!mounted) {
         return (
-            <aside className={`fixed top-0 ${isRTL ? 'inset-inline-end-0' : 'inset-inline-start-0'} h-full w-64 bg-white shadow-lg ${isRTL ? 'translate-x-full' : '-translate-x-full'}`}>
+            <aside className={`fixed top-0 ${isRTL ? 'inset-inline-end-0' : 'inset-inline-start-0'} h-full w-64 bg-white shadow-lg z-10 ${isRTL ? 'translate-x-full' : '-translate-x-full'}`}>
                 <div className="p-4">
                     <div className="flex items-center rounded-lg align-center justify-center">
                         <h1 className="text-xl font-bold mb-4 text-center ms-[50px] text-gray-800">
-                            MEERKAT
+                            {t('sidebar_title')}
                         </h1>
                     </div>
                 </div>
@@ -55,12 +53,12 @@ export default function Sidebar() {
 
     return (
         <aside
-            className={`fixed top-0 ${isRTL ? 'inset-inline-end-0' : 'inset-inline-start-0'} h-full w-64 bg-white shadow-lg transition-transform duration-200 ${translateClass}`}
+            className={`fixed top-0 ${isRTL ? 'inset-inline-end-0' : 'inset-inline-start-0'} h-full w-64 bg-white shadow-lg transition-transform duration-200 z-10 ${translateClass}`}
         >
             <div className="p-4">
                 <Link href="/" className="flex items-center rounded-lg hover:bg-gray-100 justify-center align-center m-auto mt-[20px] mb-[10px]">
                     <h1 className="text-xl font-bold text-center p-2 text-gray-800">
-                        MEERKAT-{lang}
+                        {t('sidebar_title')}
                     </h1>
                 </Link>
                 <nav>

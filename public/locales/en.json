@@ -1,15 +1,19 @@
 {
-    "setting": "Setting",
+    "setting": "Settings",
     "logout": "Logout",
     "login": "Login",
     "change_profile": "Change Profile",
     "account_management": "Account Management",
     "sidebar_title": "MEERKAT-GCC",
-    "sidebar_menu_parking_management": "Parking",
+    "sidebar_menu_parking_management": "Parking Management",
     "sidebar_menu_user_management": "User Management",
     "Settings": "Settings",
     "language": "Language",
     "language_en": "English",
     "language_ar": "Arabic",
-    "language_ko": "Korean"
+    "language_ko": "Korean",
+    "theme": "Theme",
+    "theme_light": "Light",
+    "theme_dark": "Dark",
+    "close": "Close"
 }
