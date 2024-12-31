@@ -1,11 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 const ParkingPage = () => {
-  return (
-    <div>
-      ParkingPage
-    </div>
-  )
-}
+    return <div>ParkingPage</div>;
+};
 
-export default ParkingPage
+export default ParkingPage;

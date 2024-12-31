@@ -1,46 +1,34 @@
+'use client';
+
 import { useAtom } from 'jotai';
 import { sidebarOpenAtom } from '@/atoms';
-
-const iconProps = {
-    className: "h-4 w-4 text-gray-600",
-    fill: "none",
-    viewBox: "0 0 24 24",
-    stroke: "currentColor",
-    xmlns: "http://www.w3.org/2000/svg"
-} as const;
-
-const pathProps = {
-    strokeLinecap: "round",
-    strokeLinejoin: "round",
-    strokeWidth: 2
-} as const;
+import { HiMenuAlt2 } from 'react-icons/hi';
 
 export default function SidebarToggle() {
     const [isOpen, setIsOpen] = useAtom(sidebarOpenAtom);
 
+    const buttonClasses = [
+        'fixed top-2 left-2 z-50 p-1.5 bg-gray-50/90 backdrop-blur-sm rounded-lg hover:bg-gray-100/90 transition-all duration-200 shadow-sm hover:shadow',
+        isOpen ? 'opacity-100' : 'opacity-75 hover:opacity-100'
+    ].join(' ');
+
+    const iconClasses = [
+        'h-5 w-5 text-gray-700 transition-transform duration-200',
+        isOpen ? 'rotate-180' : ''
+    ].join(' ');
+
+    const handleToggle = () => {
+        setIsOpen(!isOpen);
+    };
+
     return (
         <button
-            onClick={() => setIsOpen(!isOpen)}
-            className={`fixed top-4 left-4 z-50 p-2 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors ${
-                isOpen ? 'opacity-100' : 'opacity-60'
-            }`}
+            onClick={handleToggle}
+            className={buttonClasses}
             aria-label="사이드바 토글"
+            type="button"
         >
-            {isOpen ? (
-                <svg {...iconProps}>
-                    <path
-                        {...pathProps}
-                        d="M6 18L18 6M6 6l12 12"
-                    />
-                </svg>
-            ) : (
-                <svg {...iconProps}>
-                    <path
-                        {...pathProps}
-                        d="M4 6h16M4 12h16M4 18h16"
-                    />
-                </svg>
-            )}
+            <HiMenuAlt2 className={iconClasses} />
         </button>
     );
 }

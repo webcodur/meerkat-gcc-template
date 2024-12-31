@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import ClientLayout from '@/components/common/ClientLayout';
+import JotaiProviders from '@/components/common/Providers';
 
 export const metadata: Metadata = {
     title: '주차 관제 시스템',
@@ -13,9 +14,11 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="ko">
+        <html lang="ko" data-theme="light">
             <body>
-                <ClientLayout>{children}</ClientLayout>
+                <JotaiProviders>
+                    <ClientLayout>{children}</ClientLayout>
+                </JotaiProviders>
             </body>
         </html>
     );
