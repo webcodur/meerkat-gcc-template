@@ -1,9 +1,9 @@
 'use client';
 import { useAtom } from 'jotai';
 import { authAtom } from '@/atoms';
-import { FaRegUser, FaUserCircle } from 'react-icons/fa';
+import { IoSettingsOutline, IoSettings } from 'react-icons/io5';
 
-const Profile = () => {
+const Settings = () => {
     const [auth, setAuth] = useAtom(authAtom);
 
     const handleLogin = () => {
@@ -30,10 +30,10 @@ const Profile = () => {
                     <div className="w-8 h-8 rounded-full ring ring-primary/30 ring-offset-base-100 ring-offset-1 hover:ring-primary bg-base-100 relative">
                         <div className="absolute inset-0 flex items-center justify-center">
                             {auth.isAuthenticated && (
-                                <FaUserCircle className="w-full h-full text-primary/70" />
+                                <IoSettings className="w-5/6 h-5/6 text-primary/70" />
                             )}
                             {!auth.isAuthenticated && (
-                                <FaRegUser className="w-4/6 h-4/6 text-base-content/40" />
+                                <IoSettingsOutline className="w-5/6 h-5/6 text-base-content/40" />
                             )}
                         </div>
                     </div>
@@ -70,4 +70,4 @@ const Profile = () => {
     );
 };
 
-export default Profile;
+export default Settings;

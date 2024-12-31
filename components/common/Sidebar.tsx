@@ -27,8 +27,8 @@ export default function Sidebar() {
         return (
             <aside className="fixed top-0 left-0 h-full w-64 bg-white shadow-lg -translate-x-full">
                 <div className="p-4">
-                    <div className="flex items-center rounded-lg">
-                        <h1 className="text-xl font-bold mb-4 text-center ml-[50px] text-gray-800">
+                    <div className="flex items-center rounded-lg align-center justify-center">
+                        <h1 className="text-xl font-bold mb-4 text-center ml-[50px] text-gray-800  ">
                             MEERKAT
                         </h1>
                     </div>
@@ -39,14 +39,14 @@ export default function Sidebar() {
 
     return (
         <aside
-            className={`fixed top-0 left-0 h-full w-64 bg-white shadow-lg transition-transform duration-300 ${
+            className={`fixed top-0 left-0 h-full w-64 bg-white shadow-lg transition-transform duration-100 ${
                 isOpen ? 'translate-x-0' : '-translate-x-full'
             }`}
         >
             <div className="p-4">
-                <Link href="/" className="flex items-center rounded-lg hover:bg-gray-100">
-                    <h1 className="text-xl font-bold mb-4 text-center ml-[50px] text-gray-800">
-                        MEERKAT
+                <Link href="/" className="flex items-center rounded-lg hover:bg-gray-100 justify-center align-center m-auto mt-[20px], mb-[10px]">
+                    <h1 className="text-xl font-bold text-center p-2 text-gray-800 ">
+                        MEERKAT-AR
                     </h1>
                 </Link>
                 <nav>

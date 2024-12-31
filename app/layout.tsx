@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import './globals.css';
+import '@/assets/styles/fonts.css';
 import ClientLayout from '@/components/common/ClientLayout';
 import JotaiProviders from '@/components/common/Providers';
 
