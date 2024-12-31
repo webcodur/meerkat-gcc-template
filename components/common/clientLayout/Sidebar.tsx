@@ -2,27 +2,53 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { IoCar, IoPeople } from 'react-icons/io5';
+import { IoCar, IoPeople, IoChevronDown, IoChevronUp } from 'react-icons/io5';
+import type { IconType } from 'react-icons';
 import { useAtom } from 'jotai';
 import { sidebarOpenAtom, dirAtom, currentPathAtom } from '@/atoms';
 import { useEffect, useState } from 'react';
 import { useTranslations } from 'next-intl';
 
+interface MenuItem {
+    title: string;
+    path?: string;
+    icon: IconType;
+    subMenus?: {
+        title: string;
+        path: string;
+    }[];
+}
+
 export default function Sidebar() {
     const t = useTranslations();
+    const [expandedMenus, setExpandedMenus] = useState<string[]>([]);
 
-    const menuItems = [
-        { title: t('sidebar_menu_parking_management'), path: '/parking', icon: IoCar },
-        { title: t('sidebar_menu_user_management'), path: '/users', icon: IoPeople },
+    const menuItems: MenuItem[] = [
+        {
+            title: t('sidebar_menu_parking_management'),
+            path: '/parking',
+            icon: IoCar,
+            subMenus: [
+                { title: t('parking_info'), path: '/parking/info' },
+                { title: t('worker_management'), path: '/parking/workers' },
+                { title: t('parking_policy'), path: '/parking/policy' },
+            ],
+        },
+        {
+            title: t('sidebar_menu_user_management'),
+            path: '/users',
+            icon: IoPeople,
+            subMenus: [
+                { title: t('user_submenu_1'), path: '/users/sub1' },
+                { title: t('user_submenu_2'), path: '/users/sub2' },
+            ],
+        },
     ];
 
     const [isOpen] = useAtom(sidebarOpenAtom);
     const [dir] = useAtom(dirAtom);
-    
     const isRTL = dir === 'rtl';
-
     const pathname = usePathname();
-    
     const [currentPath, setCurrentPath] = useAtom(currentPathAtom);
     const [mounted, setMounted] = useState(false);
 
@@ -30,6 +56,14 @@ export default function Sidebar() {
         setMounted(true);
         setCurrentPath(pathname);
     }, [pathname, setCurrentPath]);
+
+    const toggleMenu = (title: string) => {
+        setExpandedMenus(prev => 
+            prev.includes(title)
+                ? prev.filter(item => item !== title)
+                : [...prev, title]
+        );
+    };
 
     const translateClass = isOpen 
         ? 'translate-x-0' 
@@ -65,19 +99,42 @@ export default function Sidebar() {
                     <ul className="space-y-2">
                         {menuItems.map((item) => {
                             const Icon = item.icon;
+                            const isExpanded = expandedMenus.includes(item.title);
+                            
                             return (
-                                <li key={item.path}>
-                                    <Link
-                                        href={item.path}
-                                        className={`flex items-center p-3 rounded-lg text-gray-700 hover:bg-gray-100 ${
-                                            currentPath === item.path
-                                                ? 'bg-gray-100 font-medium'
-                                                : ''
+                                <li key={item.title}>
+                                    <button
+                                        onClick={() => toggleMenu(item.title)}
+                                        className={`w-full flex items-center justify-between p-2 rounded-lg text-gray-700 hover:bg-gray-100 ${
+                                            currentPath === item.path ? 'bg-gray-100 font-medium' : ''
                                         }`}
                                     >
-                                        <Icon className={`me-3 text-xl`} />
-                                        {item.title}
-                                    </Link>
+                                        <div className="flex items-center">
+                                            <Icon className="me-3 text-xl" />
+                                            {item.title}
+                                        </div>
+                                        {item.subMenus && (
+                                            isExpanded ? <IoChevronUp /> : <IoChevronDown />
+                                        )}
+                                    </button>
+                                    {isExpanded && item.subMenus && (
+                                        <ul className="mt-2 ms-6 space-y-2">
+                                            {item.subMenus.map((subMenu) => (
+                                                <li key={subMenu.path}>
+                                                    <Link
+                                                        href={subMenu.path}
+                                                        className={`block p-2 rounded-lg text-gray-600 hover:bg-gray-100 ${
+                                                            currentPath === subMenu.path
+                                                                ? 'bg-gray-100 font-medium'
+                                                                : ''
+                                                        }`}
+                                                    >
+                                                        {subMenu.title}
+                                                    </Link>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    )}
                                 </li>
                             );
                         })}

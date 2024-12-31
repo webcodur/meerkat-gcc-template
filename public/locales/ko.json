@@ -19,5 +19,10 @@
     "About": {
         "title": "프로젝트 소개",
         "exploreMore": "더 알아보기"
-    }
+    },
+    "parking_info": "주차장 정보",
+    "worker_management": "근무자 관리",
+    "parking_policy": "주차장 정책설정",
+    "user_submenu_1": "이용자 서브메뉴 1",
+    "user_submenu_2": "이용자 서브메뉴 2"
 }

@@ -15,5 +15,10 @@
     "theme": "المظهر",
     "theme_light": "فاتح",
     "theme_dark": "داكن",
-    "close": "إغلاق"
+    "close": "إغلاق",
+    "parking_info": "معلومات موقف السيارات",
+    "worker_management": "إدارة العمال",
+    "parking_policy": "إعدادات سياسة وقوف السيارات",
+    "user_submenu_1": "القائمة الفرعية للمستخدم 1",
+    "user_submenu_2": "القائمة الفرعية للمستخدم 2"
 }

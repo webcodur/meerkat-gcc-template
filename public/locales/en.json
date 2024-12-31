@@ -19,5 +19,10 @@
     "About": {
         "title": "About Project",
         "exploreMore": "Explore More"
-    }
+    },
+    "parking_info": "Parking Information",
+    "worker_management": "Worker Management",
+    "parking_policy": "Parking Policy Settings",
+    "user_submenu_1": "User Submenu 1",
+    "user_submenu_2": "User Submenu 2"
 }
