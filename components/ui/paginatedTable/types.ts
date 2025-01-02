@@ -18,4 +18,4 @@ export interface PaginationProps {
   theme?: 'dark' | 'light'
 }
 
-export type GroupMoveDirection = 'first' | 'prev' | 'next' | 'last' 
+export type GroupMoveDirection = 'first' | 'prev' | 'next' | 'last'  
