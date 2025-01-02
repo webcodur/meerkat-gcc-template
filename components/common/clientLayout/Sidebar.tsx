@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { IoCar, IoPeople, IoChevronDown, IoChevronUp } from 'react-icons/io5';
+import { IoCar, IoPeople, IoFlask, IoChevronDown, IoChevronUp } from 'react-icons/io5';
 import type { IconType } from 'react-icons';
 import { useAtom } from 'jotai';
 import { sidebarOpenAtom, dirAtom, currentPathAtom } from '@/atoms';
@@ -43,6 +43,15 @@ export default function Sidebar() {
                 { title: t('user_submenu_2'), path: '/users/sub2' },
             ],
         },
+        {
+          title:'lab',
+          path: '/users',
+          icon: IoFlask,
+          subMenus: [
+              { title: 'pagination', path: '/labs/pagination' },
+              // { title: 'date', path: '/labs/date' },
+          ],
+      },
     ];
 
     const [isOpen] = useAtom(sidebarOpenAtom);

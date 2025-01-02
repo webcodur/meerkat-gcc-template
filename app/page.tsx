@@ -1,7 +1,6 @@
-import HomeView from '@/components/view/Home';
+import { redirect } from 'next/navigation';
+import { defaultLocale } from '@/config';
 
 export default function Home() {
-    return (
-        <HomeView />
-    );
+    redirect(`/${defaultLocale}`);
 }

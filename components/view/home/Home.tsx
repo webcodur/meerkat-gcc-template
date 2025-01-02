@@ -2,8 +2,10 @@
 
 import React, { useState, useEffect } from 'react';
 import { DateDisplay } from '@/components/ui/DateDisplay';
+import { useTranslations } from 'next-intl';
 
 const Home = () => {
+    const t = useTranslations();
     const [currentTime, setCurrentTime] = useState(new Date());
 
     useEffect(() => {
@@ -15,7 +17,7 @@ const Home = () => {
 
     return (
         <div>
-            <h1>Home</h1>
+            <h1>{t('language')}</h1>
             <DateDisplay date={currentTime} />
         </div>
     );
