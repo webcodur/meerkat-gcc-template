@@ -16,9 +16,14 @@ const Home = () => {
     }, []);
 
     return (
-        <div>
-            <h1>{t('language')}</h1>
-            <DateDisplay date={currentTime} />
+        <div className="flex flex-col items-center justify-center h-full p-8">
+          {/* TODO 로케일 */}
+            <DateDisplay
+                date={currentTime}
+                showRelative={true}
+                showDetails={true}
+                showLocation={true}
+            />
         </div>
     );
 };

@@ -7,41 +7,36 @@
 
 목적
 - 미래지향적 관리자 인터페이스 구현
-- 프리미엄한 조작감과 시각적 계층 구조 강화
+- 시각적 계층 구조 강화
 
 핵심 디자인 요소
 
-1. 3단계 그라데이션
+1. 메탈릭 패턴 배경
+- 배경: url(/assets/patterns/metallic.png) repeat
+- 패턴 크기: background-size: 200px
+- 불투명도: opacity: 0.1
+
+2. 기본 그라데이션
 - Tailwind: bg-gradient-to-br from-gray-300 via-white to-gray-200
-- 금속성 표면의 빛 반사 효과로 입체감 부여
+- 금속성 표면의 기본 질감 표현
 
-2. 이중 그림자
-- 외부 발광: 0 0 25px 8px rgba(255,255,255,0.8)
-- 내부 발광: inset 0 0 15px rgba(255,255,255,0.5)
-- 홀로그램 같은 부유감으로 상호작용 가능성 전달
-
-3. 흰색 테두리
-- border: 3px solid white
+3. 테두리 처리
+- border: 2px solid rgba(255,255,255,0.8)
 - 깔끔한 경계선으로 고급스러운 마감 제공
 
-4. 내부 요소 발광
-- filter: drop-shadow(0 0 8px rgba(255,255,255,1))
+4. 기본 텍스트
 - color: #374151 (text-gray-700)
-- 홀로그램 디스플레이 효과로 가시성 향상
+- font-weight: 500
 
 5. 활성화 상태 스타일
 - 그라데이션: bg-gradient-to-br from-slate-700 via-slate-600 to-slate-700
 - 테두리: border-blue-300/50
-- 글로우 효과: shadow-[0_0_15px_rgba(59,130,246,0.2)]
 - 오버레이: bg-blue-400/5
 - 텍스트: text-white
-- 활성화된 요소의 메탈릭한 느낌을 강조하면서도 선택 상태를 명확히 표현
 
 구현 참고
 - 주요 인터랙션 요소에만 선별적 적용
-- 크기/중요도에 따른 그림자 강도 조절
 - RTL 지원 고려
-- 하드웨어 가속 활용
 - 활성화 상태는 어두운 메탈릭 + 블루 계열 조합으로 통일
 
 # Next.js: Route Handler 우선
