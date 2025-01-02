@@ -7,7 +7,7 @@ const MemoizedLightTable = memo(PaginatedTableLight)
 
 const PaginationPage = () => {
   return (
-    <div className="space-y-8">
+    <div className="space-y-8 pt-8">
       <div>
         <h2 className="text-2xl font-bold mb-4">다크 모드</h2>
         <div className="bg-gray-900 rounded-xl p-4">

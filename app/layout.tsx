@@ -14,10 +14,10 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     const locale = useLocale();
-    
+
     return (
         <html data-theme="light" dir="ltr" lang={locale}>
             <body>{children}</body>
         </html>
     );
-} 
+}

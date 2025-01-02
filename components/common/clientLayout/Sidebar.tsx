@@ -2,7 +2,19 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { IoCar, IoPeople, IoFlask, IoChevronDown, IoChevronUp } from 'react-icons/io5';
+import { 
+    IoCar, 
+    IoPeople, 
+    IoFlask, 
+    IoChevronDown, 
+    IoChevronUp,
+    IoInformationCircle,
+    IoPerson,
+    IoSettings,
+    IoList,
+    IoGrid,
+    IoBeaker
+} from 'react-icons/io5';
 import type { IconType } from 'react-icons';
 import { useAtom } from 'jotai';
 import { sidebarOpenAtom, dirAtom, currentPathAtom } from '@/atoms';
@@ -16,6 +28,7 @@ interface MenuItem {
     subMenus?: {
         title: string;
         path: string;
+        icon: IconType;
     }[];
 }
 
@@ -29,9 +42,9 @@ export default function Sidebar() {
             path: '/parking',
             icon: IoCar,
             subMenus: [
-                { title: t('parking_info'), path: '/parking/info' },
-                { title: t('worker_management'), path: '/parking/workers' },
-                { title: t('parking_policy'), path: '/parking/policy' },
+                { title: t('parking_info'), path: '/parking/info', icon: IoInformationCircle },
+                { title: t('worker_management'), path: '/parking/workers', icon: IoPerson },
+                { title: t('parking_policy'), path: '/parking/policy', icon: IoSettings },
             ],
         },
         {
@@ -39,19 +52,18 @@ export default function Sidebar() {
             path: '/users',
             icon: IoPeople,
             subMenus: [
-                { title: t('user_submenu_1'), path: '/users/sub1' },
-                { title: t('user_submenu_2'), path: '/users/sub2' },
+                { title: t('user_submenu_1'), path: '/users/sub1', icon: IoList },
+                { title: t('user_submenu_2'), path: '/users/sub2', icon: IoGrid },
             ],
         },
         {
-          title:'lab',
-          path: '/users',
-          icon: IoFlask,
-          subMenus: [
-              { title: 'pagination', path: '/labs/pagination' },
-              // { title: 'date', path: '/labs/date' },
-          ],
-      },
+            title:'lab',
+            path: '/users',
+            icon: IoFlask,
+            subMenus: [
+                { title: 'pagination', path: '/labs/pagination', icon: IoBeaker },
+            ],
+        },
     ];
 
     const [isOpen] = useAtom(sidebarOpenAtom);
@@ -128,20 +140,26 @@ export default function Sidebar() {
                                     </button>
                                     {isExpanded && item.subMenus && (
                                         <ul className="mt-2 ms-6 space-y-2">
-                                            {item.subMenus.map((subMenu) => (
-                                                <li key={subMenu.path}>
-                                                    <Link
-                                                        href={subMenu.path}
-                                                        className={`block p-2 rounded-lg text-gray-600 hover:bg-gray-100 ${
-                                                            currentPath === subMenu.path
-                                                                ? 'bg-gray-100 font-medium'
-                                                                : ''
-                                                        }`}
-                                                    >
-                                                        {subMenu.title}
-                                                    </Link>
-                                                </li>
-                                            ))}
+                                            {item.subMenus.map((subMenu) => {
+                                                const SubIcon = subMenu.icon;
+                                                return (
+                                                    <li key={subMenu.path}>
+                                                        <Link
+                                                            href={subMenu.path}
+                                                            className={`block p-2 rounded-lg text-gray-600 hover:bg-gray-100 ${
+                                                                currentPath === subMenu.path
+                                                                    ? 'bg-gray-100 font-medium'
+                                                                    : ''
+                                                            }`}
+                                                        >
+                                                            <div className="flex items-center">
+                                                                <SubIcon className="me-3 text-lg" />
+                                                                {subMenu.title}
+                                                            </div>
+                                                        </Link>
+                                                    </li>
+                                                );
+                                            })}
                                         </ul>
                                     )}
                                 </li>
