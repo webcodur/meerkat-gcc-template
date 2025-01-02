@@ -1,4 +1,4 @@
-import { Article } from '../types'
+import { Article } from './types'
 
 // 더미 데이터 생성 (100개)
 export const articles: Article[] = Array.from({ length: 100 }, (_, index) => ({
