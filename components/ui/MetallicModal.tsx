@@ -14,16 +14,18 @@ export default function MetallicModal({ isOpen, onClose, title, children }: Meta
     if (!isOpen) return null;
 
     return (
-        <div 
+        <div
             className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-[2px]"
             style={{ willChange: 'backdrop-filter' }}
+            onClick={onClose}
+            role="dialog"
         >
-            <div 
+            <div
                 className="relative w-80 translate-z-0 border-2 border-white/80 bg-gradient-to-br from-gray-300 via-white to-gray-200 p-8 shadow-[0_0_25px_8px_rgba(255,255,255,0.2)]"
                 style={{ willChange: 'transform' }}
                 onClick={(e) => e.stopPropagation()}
             >
-                <IoClose 
+                <IoClose
                     size={20}
                     className="absolute end-4 top-4 cursor-pointer text-gray-700 hover:scale-105 transition-transform"
                     onClick={onClose}
@@ -37,4 +39,4 @@ export default function MetallicModal({ isOpen, onClose, title, children }: Meta
             </div>
         </div>
     );
-} 
+}
