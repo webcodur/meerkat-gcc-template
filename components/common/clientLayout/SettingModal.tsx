@@ -24,7 +24,7 @@ export default function SettingModal() {
 
     useEffect(() => {
         document.documentElement.setAttribute('data-theme', theme);
-    }, []);
+    }, [theme]);
 
     const handleThemeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
         const newTheme = e.target.value as 'light' | 'dark';
