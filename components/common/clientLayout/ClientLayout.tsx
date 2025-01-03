@@ -56,22 +56,26 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
         <NextIntlClientProvider messages={messages} locale={lang}>
             <div className="min-h-screen bg-base-100">
                 <SidebarToggle />
-                <Sidebar />
-                <div className="absolute top-3 end-16 z-20">
-                    <button
-                        onClick={() => setIsLanguageModalOpen(true)}
-                        className="w-10 h-10 rounded-full relative bg-gradient-to-br from-gray-300 via-white to-gray-200 shadow-[0_0_15px_5px_rgba(255,255,255,0.6)] hover:shadow-[0_0_20px_8px_rgba(255,255,255,0.7)] transition-all duration-300 border-2 border-white"
-                        aria-label="Change Language"
-                    >
-                        <div className="absolute inset-0 flex items-center justify-center">
-                            <IoLanguage className="w-6 h-6 text-gray-700 drop-shadow-[0_0_3px_rgba(255,255,255,0.8)]" />
+                <div className="flex min-h-screen">
+                    <Sidebar />
+                    <div className="flex-1 relative">
+                        <div className="absolute top-3 end-16 z-20">
+                            <button
+                                onClick={() => setIsLanguageModalOpen(true)}
+                                className="w-10 h-10 rounded-full relative bg-gradient-to-br from-gray-300 via-white to-gray-200 shadow-[0_0_15px_5px_rgba(255,255,255,0.6)] hover:shadow-[0_0_20px_8px_rgba(255,255,255,0.7)] transition-all duration-300 border-2 border-white"
+                                aria-label="Change Language"
+                            >
+                                <div className="absolute inset-0 flex items-center justify-center">
+                                    <IoLanguage className="w-6 h-6 text-gray-700 drop-shadow-[0_0_3px_rgba(255,255,255,0.8)]" />
+                                </div>
+                            </button>
                         </div>
-                    </button>
+                        <Settings />
+                        <MainContent>
+                            {children}
+                        </MainContent>
+                    </div>
                 </div>
-                <Settings />
-                <MainContent>
-                    {children}
-                </MainContent>
                 <SettingModal />
                 <LanguageModal 
                     isOpen={isLanguageModalOpen}
