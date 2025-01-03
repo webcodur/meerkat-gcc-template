@@ -13,7 +13,7 @@ export default function SidebarToggle() {
         'p-1.5 relative bg-gradient-to-br from-gray-300 via-white to-gray-200',
         'shadow-[0_0_25px_8px_rgba(255,255,255,0.8),inset_0_0_15px_rgba(255,255,255,0.5)]',
         'transition-all duration-300 cursor-pointer',
-        'w-[100px] h-[100px] border-[3px] border-white',
+        'w-[80px] h-[80px] border-[3px] border-white',
     ].join(' ');
 
     const iconClasses = [
