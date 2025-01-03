@@ -2,18 +2,18 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { 
-    IoCar, 
-    IoPeople, 
-    IoFlask, 
-    IoChevronDown, 
+import {
+    IoCar,
+    IoPeople,
+    IoFlask,
+    IoChevronDown,
     IoChevronUp,
     IoInformationCircle,
     IoPerson,
     IoSettings,
     IoList,
     IoGrid,
-    IoBeaker
+    IoBeaker,
 } from 'react-icons/io5';
 import type { IconType } from 'react-icons';
 import { useAtom } from 'jotai';
@@ -57,12 +57,10 @@ export default function Sidebar() {
             ],
         },
         {
-            title:'lab',
+            title: 'lab',
             path: '/users',
             icon: IoFlask,
-            subMenus: [
-                { title: 'pagination', path: '/labs/pagination', icon: IoBeaker },
-            ],
+            subMenus: [{ title: 'pagination', path: '/labs/pagination', icon: IoBeaker }],
         },
     ];
 
@@ -79,27 +77,33 @@ export default function Sidebar() {
     }, [pathname, setCurrentPath]);
 
     const toggleMenu = (title: string) => {
-        setExpandedMenus(prev => 
-            prev.includes(title)
-                ? prev.filter(item => item !== title)
-                : [...prev, title]
+        setExpandedMenus((prev) =>
+            prev.includes(title) ? prev.filter((item) => item !== title) : [...prev, title]
         );
     };
 
-    const translateClass = isOpen 
-        ? 'translate-x-0' 
-        : isRTL 
-            ? 'translate-x-full'
-            : '-translate-x-full';
+    const translateClass = isOpen
+        ? 'translate-x-0'
+        : isRTL
+        ? 'translate-x-full'
+        : '-translate-x-full';
 
     if (!mounted) {
         return (
-            <aside className={`fixed top-0 ${isRTL ? 'inset-inline-end-0' : 'inset-inline-start-0'} h-full w-64 bg-white shadow-lg z-10 ${isRTL ? 'translate-x-full' : '-translate-x-full'}`}>
-                <div className="p-4">
-                    <div className="flex items-center rounded-lg align-center justify-center">
-                        <h1 className="text-xl font-bold mb-4 text-center ms-[50px] text-gray-800">
-                            {t('sidebar_title')}
-                        </h1>
+            <aside
+                className={`lg:relative fixed top-0 ${
+                    isRTL ? 'inset-inline-end-0' : 'inset-inline-start-0'
+                } h-screen w-64 bg-white shadow-lg z-10 ${
+                    isRTL ? 'translate-x-full' : '-translate-x-full'
+                }`}
+            >
+                <div className="h-full overflow-y-auto">
+                    <div className="p-4">
+                        <div className="flex items-center rounded-lg align-center justify-center">
+                            <h1 className="text-xl font-bold mb-4 text-center ms-[50px] text-gray-800">
+                                {t('sidebar_title')}
+                            </h1>
+                        </div>
                     </div>
                 </div>
             </aside>
@@ -108,65 +112,73 @@ export default function Sidebar() {
 
     return (
         <aside
-            className={`fixed top-0 ${isRTL ? 'inset-inline-end-0' : 'inset-inline-start-0'} h-full w-64 bg-white shadow-lg transition-transform duration-200 z-10 ${translateClass}`}
+            className={`lg:relative fixed top-0 ${
+                isRTL ? 'inset-inline-end-0' : 'inset-inline-start-0'
+            } h-screen w-64 bg-white shadow-lg transition-transform duration-200 z-10 ${translateClass}`}
         >
-            <div className="p-4">
-                <Link href="/" className="flex items-center rounded-lg hover:bg-gray-100 justify-center align-center m-auto mt-[20px] mb-[10px]">
-                    <h1 className="text-xl font-bold text-center p-2 text-gray-800">
-                        {t('sidebar_title')}
-                    </h1>
-                </Link>
-                <nav>
-                    <ul className="space-y-2">
-                        {menuItems.map((item) => {
-                            const Icon = item.icon;
-                            const isExpanded = expandedMenus.includes(item.title);
-                            
-                            return (
-                                <li key={item.title}>
-                                    <button
-                                        onClick={() => toggleMenu(item.title)}
-                                        className={`w-full flex items-center justify-between p-2 rounded-lg text-gray-700 hover:bg-gray-100 ${
-                                            currentPath === item.path ? 'bg-gray-100 font-medium' : ''
-                                        }`}
-                                    >
-                                        <div className="flex items-center">
-                                            <Icon className="me-3 text-xl" />
-                                            {item.title}
-                                        </div>
-                                        {item.subMenus && (
-                                            isExpanded ? <IoChevronUp /> : <IoChevronDown />
+            <div className="h-full overflow-y-auto">
+                <div className="p-4">
+                    <Link
+                        href="/"
+                        className="flex items-center rounded-lg hover:bg-gray-100 justify-center align-center m-auto mt-[20px] mb-[10px]"
+                    >
+                        <h1 className="text-xl font-bold text-center p-2 text-gray-800">
+                            {t('sidebar_title')}
+                        </h1>
+                    </Link>
+                    <nav>
+                        <ul className="space-y-2">
+                            {menuItems.map((item) => {
+                                const Icon = item.icon;
+                                const isExpanded = expandedMenus.includes(item.title);
+
+                                return (
+                                    <li key={item.title}>
+                                        <button
+                                            onClick={() => toggleMenu(item.title)}
+                                            className={`w-full flex items-center justify-between p-2 rounded-lg text-gray-700 hover:bg-gray-100 ${
+                                                currentPath === item.path
+                                                    ? 'bg-gray-100 font-medium'
+                                                    : ''
+                                            }`}
+                                        >
+                                            <div className="flex items-center">
+                                                <Icon className="me-3 text-xl" />
+                                                {item.title}
+                                            </div>
+                                            {item.subMenus &&
+                                                (isExpanded ? <IoChevronUp /> : <IoChevronDown />)}
+                                        </button>
+                                        {isExpanded && item.subMenus && (
+                                            <ul className="mt-2 ms-6 space-y-2">
+                                                {item.subMenus.map((subMenu) => {
+                                                    const SubIcon = subMenu.icon;
+                                                    return (
+                                                        <li key={subMenu.path}>
+                                                            <Link
+                                                                href={subMenu.path}
+                                                                className={`block p-2 rounded-lg text-gray-600 hover:bg-gray-100 ${
+                                                                    currentPath === subMenu.path
+                                                                        ? 'bg-gray-100 font-medium'
+                                                                        : ''
+                                                                }`}
+                                                            >
+                                                                <div className="flex items-center">
+                                                                    <SubIcon className="me-3 text-lg" />
+                                                                    {subMenu.title}
+                                                                </div>
+                                                            </Link>
+                                                        </li>
+                                                    );
+                                                })}
+                                            </ul>
                                         )}
-                                    </button>
-                                    {isExpanded && item.subMenus && (
-                                        <ul className="mt-2 ms-6 space-y-2">
-                                            {item.subMenus.map((subMenu) => {
-                                                const SubIcon = subMenu.icon;
-                                                return (
-                                                    <li key={subMenu.path}>
-                                                        <Link
-                                                            href={subMenu.path}
-                                                            className={`block p-2 rounded-lg text-gray-600 hover:bg-gray-100 ${
-                                                                currentPath === subMenu.path
-                                                                    ? 'bg-gray-100 font-medium'
-                                                                    : ''
-                                                            }`}
-                                                        >
-                                                            <div className="flex items-center">
-                                                                <SubIcon className="me-3 text-lg" />
-                                                                {subMenu.title}
-                                                            </div>
-                                                        </Link>
-                                                    </li>
-                                                );
-                                            })}
-                                        </ul>
-                                    )}
-                                </li>
-                            );
-                        })}
-                    </ul>
-                </nav>
+                                    </li>
+                                );
+                            })}
+                        </ul>
+                    </nav>
+                </div>
             </div>
         </aside>
     );
