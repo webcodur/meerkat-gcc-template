@@ -3,12 +3,12 @@ import { IconType } from 'react-icons';
 export interface SubMenuItem {
     title: string;
     path: string;
-    icon: IconType;
+    icon?: IconType;
 }
 
 export interface MenuItem {
     title: string;
     path?: string;
-    icon: IconType;
+    icon?: IconType;
     subMenus?: SubMenuItem[];
 } 

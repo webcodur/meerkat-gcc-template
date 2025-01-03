@@ -12,7 +12,7 @@
 핵심 디자인 요소
 
 1. 메탈릭 패턴 배경
-- 배경: url(/assets/patterns/metallic.png) repeat
+- 배경: public/patterns/metallic-texture.svg
 - 패턴 크기: background-size: 200px
 - 불투명도: opacity: 0.1
 
