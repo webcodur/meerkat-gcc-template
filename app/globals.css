@@ -3,53 +3,93 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-rgb: 255, 255, 255;
+    --foreground-rgb: 0, 0, 0;
+    --background-rgb: 255, 255, 255;
 }
 
 html,
 body {
-  height: 100vh;
-  height: 100dvh;
-  margin: 0;
-  padding: 0;
+    height: 100vh;
+    height: 100dvh;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: rgb(var(--background-rgb));
-  overflow-y: auto;
+    color: rgb(var(--foreground-rgb));
+    background: rgb(var(--background-rgb));
+    overflow-y: auto;
 }
 
 main {
-  min-height: 100vh;
-  min-height: 100dvh;
-  display: flex;
-  flex-direction: column;
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
 }
 
 /* 스크롤바 스타일링 */
 ::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+    width: 6px;
+    height: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.05);
-  border-radius: 3px;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(156, 163, 175, 0.5);
-  border-radius: 3px;
-  transition: all 0.2s ease;
+    background: rgba(156, 163, 175, 0.5);
+    border-radius: 3px;
+    transition: all 0.2s ease;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(107, 114, 128, 0.7);
+    background: rgba(107, 114, 128, 0.7);
 }
 
 * {
-  scrollbar-width: thin;
-  scrollbar-color: rgba(156, 163, 175, 0.5) rgba(0, 0, 0, 0.05);
+    scrollbar-width: thin;
+    scrollbar-color: rgba(156, 163, 175, 0.5) rgba(0, 0, 0, 0.05);
+}
+
+/* 커스텀 커서 스타일 */
+* {
+    cursor: url('/icons/mouse/default.svg') 1 1, default;
+}
+
+/* 클릭 가능한 요소 */
+button,
+a,
+[role='button'],
+select,
+summary,
+[type='button'],
+[type='submit'],
+[type='reset'] {
+    cursor: url('/icons/mouse/pointer.svg') 7 3, pointer !important;
+}
+
+/* 텍스트 선택 */
+input,
+textarea {
+    cursor: url('/icons/mouse/text.svg') 7 3, text !important;
+}
+
+/* 도움말 */
+[title],
+[data-tooltip] {
+    cursor: url('/icons/mouse/help.svg') 7 3, help !important;
+}
+
+/* 이동 가능한 요소 */
+[draggable='true'] {
+    cursor: url('/icons/mouse/move.svg') 7 3, move !important;
+}
+
+/* 사용 불가 요소 */
+[disabled],
+.disabled {
+    cursor: url('/icons/mouse/notAllowed.svg') 7 3, notAllowed !important;
 }

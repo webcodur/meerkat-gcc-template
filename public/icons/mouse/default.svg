@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32" height="32" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="metalGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="50%" stop-color="#D8D8D8"/>
+      <stop offset="100%" stop-color="#A0A0A0"/>
+    </linearGradient>
+  </defs>
+  <path d="M3 3L12 20L14 12L20 10L3 3Z" 
+        fill="url(#metalGradient)" 
+        stroke="#404040" 
+        stroke-width="1"/>
+</svg>
