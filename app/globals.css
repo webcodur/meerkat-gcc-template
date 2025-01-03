@@ -19,6 +19,7 @@ body {
     color: rgb(var(--foreground-rgb));
     background: rgb(var(--background-rgb));
     overflow-y: auto;
+    cursor: url('/icons/mouse/default.svg') 0 0, auto;
 }
 
 main {
@@ -55,8 +56,8 @@ main {
 }
 
 /* 커스텀 커서 스타일 */
-* {
-    cursor: url('/icons/mouse/default.svg') 1 1, default;
+body {
+    cursor: url('/icons/mouse/default.svg') 0 0, auto;
 }
 
 /* 클릭 가능한 요소 */
@@ -67,29 +68,40 @@ select,
 summary,
 [type='button'],
 [type='submit'],
-[type='reset'] {
-    cursor: url('/icons/mouse/pointer.svg') 7 3, pointer !important;
+[type='reset'],
+.cursor-pointer,
+table tr[class*='cursor-pointer'],
+table td[class*='cursor-pointer'],
+aside li button,
+aside li a,
+.btn,
+.join button {
+    cursor: url('/icons/mouse/pointer.svg') 6 2, pointer !important;
 }
 
 /* 텍스트 선택 */
-input,
+input:not([type='button']):not([type='submit']):not([type='reset']),
 textarea {
-    cursor: url('/icons/mouse/text.svg') 7 3, text !important;
+    cursor: url('/icons/mouse/text.svg') 6 2, text;
 }
 
 /* 도움말 */
-[title],
+[title]:not(td):not(th):not(input):not(button):not(a),
 [data-tooltip] {
-    cursor: url('/icons/mouse/help.svg') 7 3, help !important;
+    cursor: url('/icons/mouse/help.svg') 6 2, help;
 }
 
 /* 이동 가능한 요소 */
 [draggable='true'] {
-    cursor: url('/icons/mouse/move.svg') 7 3, move !important;
+    cursor: url('/icons/mouse/move.svg') 6 2, move;
 }
 
 /* 사용 불가 요소 */
 [disabled],
-.disabled {
-    cursor: url('/icons/mouse/notAllowed.svg') 7 3, notAllowed !important;
+.disabled,
+button:disabled,
+input:disabled,
+select:disabled,
+textarea:disabled {
+    cursor: url('/icons/mouse/notAllowed.svg') 6 2, not-allowed;
 }

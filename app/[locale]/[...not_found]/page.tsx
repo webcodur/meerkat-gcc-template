@@ -11,7 +11,7 @@ export default function CatchAllNotFound() {
     const locale = params.locale as string;
 
     return (
-        <div className="h-[calc(100vh-4rem)] -mx-8 flex items-center justify-center">
+        <div className="h-[calc(100dvh-4rem)] px-8 flex items-center justify-center">
             <div className="max-w-md w-full">
                 <MetallicCard>
                     <div className="space-y-6 text-center">
