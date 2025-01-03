@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { DateDisplay } from '@/components/ui/DateDisplay';
+import { DateDisplay } from '@/components/ui/dateDisplay/DateDisplay';
 
 const Home = () => {
     const [currentTime, setCurrentTime] = useState(new Date());
