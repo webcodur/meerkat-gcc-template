@@ -4,13 +4,11 @@ import { useAtom } from 'jotai';
 import { langAtom, themeAtom, dirAtom } from '@/atoms';
 import { useEffect, useState } from 'react';
 import { NextIntlClientProvider } from 'next-intl';
-import SettingModal from './SettingModal';
-import LanguageModal from './LanguageModal';
-import Sidebar from './Sidebar';
-import Settings from './Settings';
+import Sidebar from '../sidebar/Sidebar';
+import SettingsButton from './SettingsButton';
 import SidebarToggle from './SidebarToggle';
 import MainContent from './MainContent';
-import { IoLanguage } from 'react-icons/io5';
+import LanguageButton from './LanguageButton';
 
 export default function ClientLayout({ children }: { children: React.ReactNode }) {
     const [lang] = useAtom(langAtom);
@@ -19,7 +17,6 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
     const [messages, setMessages] = useState<Record<string, string>>({});
     const [isLoading, setIsLoading] = useState(true);
     const [isMounted, setIsMounted] = useState(false);
-    const [isLanguageModalOpen, setIsLanguageModalOpen] = useState(false);
 
     // HTML 속성 설정
     useEffect(() => {
@@ -45,7 +42,7 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
                 setIsLoading(false);
             }
         };
-        
+
         loadMessages();
     }, [lang]);
 
@@ -54,34 +51,18 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
 
     return (
         <NextIntlClientProvider messages={messages} locale={lang}>
-            <div className="min-h-screen bg-base-100">
-                <SidebarToggle />
-                <div className="flex min-h-screen">
-                    <Sidebar />
-                    <div className="flex-1 relative">
-                        <div className="absolute top-3 end-16 z-20">
-                            <button
-                                onClick={() => setIsLanguageModalOpen(true)}
-                                className="w-10 h-10 rounded-full relative bg-gradient-to-br from-gray-300 via-white to-gray-200 shadow-[0_0_15px_5px_rgba(255,255,255,0.6)] hover:shadow-[0_0_20px_8px_rgba(255,255,255,0.7)] transition-all duration-300 border-2 border-white"
-                                aria-label="Change Language"
-                            >
-                                <div className="absolute inset-0 flex items-center justify-center">
-                                    <IoLanguage className="w-6 h-6 text-gray-700 drop-shadow-[0_0_3px_rgba(255,255,255,0.8)]" />
-                                </div>
-                            </button>
-                        </div>
-                        <Settings />
-                        <MainContent>
-                            {children}
-                        </MainContent>
-                    </div>
+            {/* FIXED CONTENTS */}
+            <SidebarToggle />
+            <LanguageButton />
+            <SettingsButton />
+
+            {/* RELATIVE CONTENTS */}
+            <div className="flex min-h-screen bg-base-100">
+                <Sidebar />
+                <div className="flex-1">
+                    <MainContent>{children}</MainContent>
                 </div>
-                <SettingModal />
-                <LanguageModal 
-                    isOpen={isLanguageModalOpen}
-                    onClose={() => setIsLanguageModalOpen(false)}
-                />
             </div>
         </NextIntlClientProvider>
     );
-} 
+}

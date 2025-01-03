@@ -2,25 +2,25 @@
 
 import { useAtom } from 'jotai';
 import { useEffect } from 'react';
-import { themeAtom, settingsOpenAtom } from '@/atoms';
+import { themeAtom, modalAtom } from '@/atoms';
 import { useTranslations } from 'next-intl';
 import MetallicModal from '@/components/ui/MetallicModal';
 
 export default function SettingModal() {
     const t = useTranslations();
     const [theme, setTheme] = useAtom(themeAtom);
-    const [isOpen, setIsOpen] = useAtom(settingsOpenAtom);
+    const [modal, setModal] = useAtom(modalAtom);
 
     useEffect(() => {
         const handleEscKey = (event: KeyboardEvent) => {
-            if (event.key === 'Escape' && isOpen) {
-                setIsOpen(false);
+            if (event.key === 'Escape' && modal === 'settings') {
+                setModal(null);
             }
         };
 
         window.addEventListener('keydown', handleEscKey);
         return () => window.removeEventListener('keydown', handleEscKey);
-    }, [isOpen, setIsOpen]);
+    }, [modal, setModal]);
 
     useEffect(() => {
         document.documentElement.setAttribute('data-theme', theme);
@@ -34,8 +34,8 @@ export default function SettingModal() {
 
     return (
         <MetallicModal
-            isOpen={isOpen}
-            onClose={() => setIsOpen(false)}
+            isOpen={modal === 'settings'}
+            onClose={() => setModal(null)}
             title={t('Settings')}
         >
             <div className="space-y-6 relative z-10">
