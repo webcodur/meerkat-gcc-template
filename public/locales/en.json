@@ -27,7 +27,11 @@
     "user_submenu_2": "User Submenu 2",
     "Error": {
         "pageNotFound": "Page Not Found",
-        "pageNotFoundDesc": "The page you are looking for might have been removed or is temporarily unavailable.",
+        "pageNotFoundDesc": "The page you requested could not be found or has been moved.",
         "backToHome": "Back to Home"
+    },
+    "Pagination": {
+        "darkMode": "Dark Mode",
+        "lightMode": "Light Mode"
     }
 }
