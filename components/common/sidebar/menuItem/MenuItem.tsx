@@ -70,9 +70,14 @@ function MenuItem({ item, currentPath, isExpanded, onToggle }: MenuItemProps) {
             </button>
             
             {/* 서브메뉴 영역 */}
-            {isExpanded && item.subMenus && (
+            <div 
+                className={`
+                    overflow-hidden transition-[max-height,opacity] duration-200 ease-in-out
+                    ${isExpanded ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'}
+                `}
+            >
                 <ul className="mt-2 ms-6 space-y-2">
-                    {item.subMenus.map((subMenu) => (
+                    {item.subMenus?.map((subMenu) => (
                         <SubMenuItem
                             key={subMenu.path}
                             item={subMenu}
@@ -80,7 +85,7 @@ function MenuItem({ item, currentPath, isExpanded, onToggle }: MenuItemProps) {
                         />
                     ))}
                 </ul>
-            )}
+            </div>
         </li>
     );
 }
