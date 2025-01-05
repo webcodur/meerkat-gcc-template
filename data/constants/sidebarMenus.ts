@@ -19,38 +19,13 @@ export const getMenuItems = (t: (key: string) => string): MenuItem[] => [
         ],
     },
     {
-        title: 'lab',
+        title: 'UI labs',
         path: '/users',
-        subMenus: [{ title: 'pagination', path: '/labs/pagination' }],
-    },
-    {
-        title: 'lab1',
-        path: '/users1',
-        subMenus: [{ title: 'pagination1', path: '/labs/pagination1' }],
-    },
-    {
-        title: 'lab2',
-        path: '/users2',
-        subMenus: [{ title: 'pagination2', path: '/labs/pagination2' }],
-    },
-    {
-        title: 'lab3',
-        path: '/users3',
-        subMenus: [{ title: 'pagination3', path: '/labs/pagination3' }],
-    },
-    {
-        title: 'lab4',
-        path: '/users4',
-        subMenus: [{ title: 'pagination4', path: '/labs/pagination4' }],
-    },
-    {
-        title: 'lab5',
-        path: '/users5',
-        subMenus: [{ title: 'pagination5', path: '/labs/pagination5' }],
-    },
-    {
-        title: 'lab6',
-        path: '/users6',
-        subMenus: [{ title: 'pagination6', path: '/labs/pagination6' }],
+        subMenus: [
+            { title: 'metalic pagination', path: '/labs/pagination' },
+            { title: 'metalic pattern', path: '/labs/pattern' },
+            { title: 'metalic button', path: '/labs/button' },
+            { title: 'metalic toggleButton', path: '/labs/toggleButton' },
+        ],
     },
 ]; 
