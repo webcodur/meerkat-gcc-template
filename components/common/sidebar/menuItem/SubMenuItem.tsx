@@ -16,7 +16,6 @@ export default function SubMenuItem({ item, currentPath }: SubMenuItemProps) {
                 href={item.path}
                 className={`
                     block p-2 rounded-lg
-                    transition-all duration-200 ease-in-out
                     ${isActive 
                         ? 'bg-gradient-to-br from-slate-700 via-slate-600 to-slate-700 text-white border border-blue-300/50' 
                         : 'text-gray-400 hover:bg-slate-700/50'

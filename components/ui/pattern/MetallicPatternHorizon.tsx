@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 
-const BrushedMetal = () => {
+interface MetallicPatternHorizonProps {
+  children?: ReactNode;
+  className?: string;
+}
+
+const MetallicPatternHorizon = ({ children, className = '' }: MetallicPatternHorizonProps) => {
   return (
     <div 
-      className="w-full h-64"
+      className={`relative w-full h-64 ${className}`}
       style={{
         backgroundImage: `
           radial-gradient(
@@ -38,8 +43,10 @@ const BrushedMetal = () => {
           )
         `
       }}
-    />
+    >
+      {children}
+    </div>
   );
 };
 
-export default BrushedMetal;
+export default MetallicPatternHorizon;

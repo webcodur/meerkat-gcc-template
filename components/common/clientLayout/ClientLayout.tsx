@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 import { NextIntlClientProvider } from 'next-intl';
 import Sidebar from '../sidebar/Sidebar';
 import SettingsButton from './SettingsButton';
-import SidebarToggle from './SidebarToggle';
+import SidebarToggle from '@/components/common/clientLayout/SidebarToggle';
 import MainContent from './MainContent';
 import LanguageButton from './LanguageButton';
 

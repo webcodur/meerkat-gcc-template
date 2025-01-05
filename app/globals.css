@@ -19,7 +19,7 @@ body {
     color: rgb(var(--foreground-rgb));
     background: rgb(var(--background-rgb));
     overflow-y: auto;
-    cursor: url('/icons/mouse/default.svg') 0 0, auto;
+    /* cursor: url('/icons/mouse/default.svg') 0 0, auto; */
 }
 
 main {
@@ -56,12 +56,17 @@ main {
 }
 
 /* 커스텀 커서 스타일 */
-body {
+/* body {
     cursor: url('/icons/mouse/default.svg') 0 0, auto;
+} */
+
+/* *:not(button):not(a):not([role='button']):not(select):not(summary):not([type='button']):not([type='submit']):not([type='reset']):not(.cursor-pointer):not(input):not(textarea):not([title]):not([data-tooltip]):not([draggable='true']):not([disabled]):not(.disabled):not(p):not(span):not(h1):not(h2):not(h3):not(h4):not(h5):not(h6):not(label):not(div[contenteditable="true"]) {
+    cursor: url('/icons/mouse/default.svg') 0 0, auto !important;
 }
 
-/* 클릭 가능한 요소 */
-button,
+ */
+
+/* button,
 a,
 [role='button'],
 select,
@@ -79,24 +84,42 @@ aside li a,
     cursor: url('/icons/mouse/pointer.svg') 6 2, pointer !important;
 }
 
-/* 텍스트 선택 */
 input:not([type='button']):not([type='submit']):not([type='reset']),
 textarea {
     cursor: url('/icons/mouse/text.svg') 6 2, text;
 }
 
-/* 도움말 */
+::selection,
+::-moz-selection {
+    cursor: url('/icons/mouse/text.svg') 6 2, text;
+}
+
+*:hover {
+    cursor: inherit;
+}
+
+p:hover,
+span:hover,
+h1:hover,
+h2:hover,
+h3:hover,
+h4:hover,
+h5:hover,
+h6:hover,
+label:hover,
+div[contenteditable="true"]:hover {
+    cursor: url('/icons/mouse/text.svg') 6 2, text;
+}
+
 [title]:not(td):not(th):not(input):not(button):not(a),
 [data-tooltip] {
     cursor: url('/icons/mouse/help.svg') 6 2, help;
 }
 
-/* 이동 가능한 요소 */
 [draggable='true'] {
     cursor: url('/icons/mouse/move.svg') 6 2, move;
 }
 
-/* 사용 불가 요소 */
 [disabled],
 .disabled,
 button:disabled,
@@ -104,4 +127,4 @@ input:disabled,
 select:disabled,
 textarea:disabled {
     cursor: url('/icons/mouse/notAllowed.svg') 6 2, not-allowed;
-}
+} */
