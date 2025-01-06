@@ -1,6 +1,10 @@
-const MetallicPatternVertical = () => {
+interface MetallicPatternVerticalProps {
+  className?: string;
+}
+
+const MetallicPatternVertical = ({ className = '' }: MetallicPatternVerticalProps) => {
   return (
-    <div className="relative p-12 w-96 bg-[#9c9ba1] flex flex-col"
+    <div className={`relative p-12 w-96 bg-[#9c9ba1] flex flex-col ${className}`.trim()}
       style={{
         boxShadow: `
           inset hsla(0,0%,15%,1) 0 0px 0px 4px,

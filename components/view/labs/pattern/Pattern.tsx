@@ -1,26 +1,33 @@
-import React from 'react'
-import MetallicPatternHorizon from '@/components/ui/pattern/MetallicPatternHorizon'
-import MetallicPatternVertical from '@/components/ui/pattern/MetallicPatternVertical'
-import MetallicPatternBrushed from '@/components/ui/pattern/MetallicPatternBrushed'
-import MetallicPatternNoise from '@/components/ui/pattern/MetallicPatternNoise'
+import React from 'react';
+import MetallicPatternHorizon from '@/components/ui/pattern/MetallicPatternHorizon';
+import MetallicPatternVertical from '@/components/ui/pattern/MetallicPatternVertical';
+import MetallicPatternBrushed from '@/components/ui/pattern/MetallicPatternBrushed';
+import MetallicPatternNoise from '@/components/ui/pattern/MetallicPatternNoise';
 
 const Pattern = () => {
-  return (
-    <div>
-      <h1>Pattern1: Horizontal</h1>
-      <MetallicPatternHorizon />  
+    return (
+        <div className="space-y-8 p-4">
+            <section>
+                <h1 className="text-xl font-bold mb-2">Pattern1: Horizontal</h1>
+                <MetallicPatternHorizon className="w-full h-64 rounded-lg" />
+            </section>
 
-      <h1>Pattern2: Vertical</h1>
-      <MetallicPatternVertical />
+            <section>
+                <h1 className="text-xl font-bold mb-2">Pattern2: Vertical</h1>
+                <MetallicPatternVertical className="w-full h-64 rounded-lg" />
+            </section>
 
-      <h1>Pattern3: Brushed</h1>
-      <MetallicPatternBrushed /> 
+            <section>
+                <h1 className="text-xl font-bold mb-2">Pattern3: Brushed</h1>
+                <MetallicPatternBrushed className="w-full h-64 rounded-lg" />
+            </section>
 
-      <h1>Pattern4: Noise</h1>
-      <MetallicPatternNoise />
-    </div>
-  )
-}
+            <section>
+                <h1 className="text-xl font-bold mb-2">Pattern4: Noise</h1>
+                <MetallicPatternNoise className="w-full h-64 rounded-lg" />
+            </section>
+        </div>
+    );
+};
 
-export default Pattern
-  
+export default Pattern;

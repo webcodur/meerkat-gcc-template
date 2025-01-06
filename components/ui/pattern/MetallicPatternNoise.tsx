@@ -3,6 +3,7 @@ import React, { CSSProperties } from 'react';
 interface MetallicPatternNoiseProps {
   width?: number;
   height?: number;
+  className?: string;
 }
 
 interface CustomStyles extends CSSProperties {
@@ -12,10 +13,11 @@ interface CustomStyles extends CSSProperties {
   '--ac': string;
 }
 
-const BlackWhiteNoiseGradient: React.FC<MetallicPatternNoiseProps> = ({ 
+const MetallicPatternNoise = ({ 
   width,
-  height = 200
-}) => {
+  height = 200,
+  className = ''
+}: MetallicPatternNoiseProps) => {
   const styles: CustomStyles = {
     '--bg': '#FFFFFF',
     '--fg': '#E5E5E7',  
@@ -24,7 +26,7 @@ const BlackWhiteNoiseGradient: React.FC<MetallicPatternNoiseProps> = ({
   };
 
   return (
-    <div style={styles as CSSProperties} className="grid place-items-center w-full">
+    <div style={styles as CSSProperties} className={`grid place-items-center w-full ${className}`.trim()}>
       <svg className="absolute w-px h-px -m-px">
         <defs>
           <filter id="noise">
@@ -65,4 +67,4 @@ const BlackWhiteNoiseGradient: React.FC<MetallicPatternNoiseProps> = ({
   );
 };
 
-export default BlackWhiteNoiseGradient;
+export default MetallicPatternNoise;

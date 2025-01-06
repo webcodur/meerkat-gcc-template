@@ -9,6 +9,7 @@ import SettingsButton from './SettingsButton';
 import SidebarToggle from '@/components/common/clientLayout/SidebarToggle';
 import MainContent from './MainContent';
 import LanguageButton from './LanguageButton';
+import MetallicPatternBrushed from '@/components/ui/pattern/MetallicPatternBrushed';
 
 export default function ClientLayout({ children }: { children: React.ReactNode }) {
     const [lang] = useAtom(langAtom);
@@ -56,10 +57,15 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
             <LanguageButton />
             <SettingsButton />
 
+            {/* Background Pattern */}
+            <div className="fixed inset-0 pointer-events-none">
+                <MetallicPatternBrushed className="w-full h-full bg-opacity-80" />
+            </div>
+
             {/* RELATIVE CONTENTS */}
-            <div className="flex min-h-screen bg-base-100">
+            <div className="flex min-h-screen relative">
                 <Sidebar />
-                <div className="flex-1">
+                <div className="flex-1 bg-opacity-50">
                     <MainContent>{children}</MainContent>
                 </div>
             </div>
