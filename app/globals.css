@@ -18,8 +18,7 @@ body {
 body {
     color: rgb(var(--foreground-rgb));
     background: rgb(var(--background-rgb));
-    overflow-y: auto;
-    /* cursor: url('/icons/mouse/default.svg') 0 0, auto; */
+    overflow: hidden;
 }
 
 main {
@@ -29,7 +28,7 @@ main {
     flex-direction: column;
 }
 
-/* 스크롤바 스타일링 */
+/* 공통 스크롤바 스타일 */
 ::-webkit-scrollbar {
     width: 6px;
     height: 6px;
@@ -43,7 +42,6 @@ main {
 ::-webkit-scrollbar-thumb {
     background: rgba(156, 163, 175, 0.5);
     border-radius: 3px;
-    transition: all 0.2s ease;
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -53,6 +51,15 @@ main {
 * {
     scrollbar-width: thin;
     scrollbar-color: rgba(156, 163, 175, 0.5) rgba(0, 0, 0, 0.05);
+}
+
+/* RTL 스크롤바 위치 */
+[dir="rtl"] .overflow-y-auto {
+    direction: rtl;
+}
+
+[dir="rtl"] .overflow-y-auto > * {
+    direction: ltr;
 }
 
 /* 커스텀 커서 스타일 */
