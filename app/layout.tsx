@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import '@/app/globals.css';
-import '@/assets/styles/fonts.css';
 import { useLocale } from 'next-intl';
 import { pretendard, notoSansKr, dmSerifText, cairo } from './fonts';
 
