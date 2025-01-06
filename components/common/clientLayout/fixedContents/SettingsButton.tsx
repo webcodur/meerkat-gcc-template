@@ -3,7 +3,7 @@
 import { useAtom } from 'jotai';
 import { modalAtom } from '@/atoms';
 import { useTranslations } from 'next-intl';
-import SettingModal from './SettingModal';
+import SettingModal from '../SettingModal';
 import { FiSettings } from 'react-icons/fi';
 
 export default function SettingsButton() {

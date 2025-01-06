@@ -1,7 +1,7 @@
 import { useAtom } from 'jotai';
 import { useTranslations } from 'next-intl';
 import { modalAtom } from '@/atoms';
-import LanguageModal from './LanguageModal';
+import LanguageModal from '../LanguageModal';
 import { HiLanguage } from 'react-icons/hi2';
 
 export default function LanguageButton() {

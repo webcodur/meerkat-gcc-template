@@ -5,11 +5,13 @@ import { langAtom, themeAtom, dirAtom } from '@/atoms';
 import { useEffect, useState } from 'react';
 import { NextIntlClientProvider } from 'next-intl';
 import Sidebar from '../sidebar/Sidebar';
-import SettingsButton from './SettingsButton';
-import SidebarToggle from '@/components/common/clientLayout/SidebarToggle';
+import SettingsButton from './fixedContents/SettingsButton';
+import SidebarToggle from '@/components/common/clientLayout/fixedContents/SidebarToggle';
 import MainContent from './MainContent';
-import LanguageButton from './LanguageButton';
+import LanguageButton from './fixedContents/LanguageButton';
 import SubMenu from './submenu/SubMenu';
+import Breadcrumb from './Breadcrumb';
+
 export default function ClientLayout({ children }: { children: React.ReactNode }) {
     const [lang] = useAtom(langAtom);
     const [theme] = useAtom(themeAtom);
@@ -53,16 +55,15 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
         <NextIntlClientProvider messages={messages} locale={lang}>
             {/* FIXED CONTENTS */}
             <SidebarToggle />
-            <div className="fixed top-4 end-4 flex gap-2 z-50">
-                <LanguageButton />
-                <SettingsButton />
-            </div>
+            <LanguageButton />
+            <SettingsButton />
             <SubMenu />
 
             {/* RELATIVE CONTENTS */}
             <div className="flex min-h-screen relative">
                 <Sidebar />
                 <div className="flex-1 bg-opacity-50 bg-gray-300">
+                    <Breadcrumb />
                     <MainContent>{children}</MainContent>
                 </div>
             </div>

@@ -60,6 +60,7 @@ function MenuItem({ item }: MenuItemProps) {
 
     return (
         <li className="relative">
+            {/* 메뉴 버튼 */}
             <button
                 ref={buttonRef}
                 onClick={handleToggleMenu}
@@ -70,10 +71,12 @@ function MenuItem({ item }: MenuItemProps) {
                     hover:bg-base-300/70
                 `}
             >
+                {/* 메뉴 이름 */}
                 <span className={isActive ? 'font-medium' : ''}>
                     {item.title}
                 </span>
 
+                {/* 열림 표시 아이콘 */}
                 {item.subMenus && (
                     <div 
                         className={`transition-transform duration-200 ${isExpanded ? 'rotate-180' : ''}`}
