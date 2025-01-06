@@ -10,10 +10,10 @@ export default function SidebarToggle() {
     const isRTL = dir === 'rtl';
 
     const buttonClasses = [
-        'p-1.5 relative bg-gradient-to-br from-gray-300 via-white to-gray-200',
-        'shadow-[0_0_25px_8px_rgba(255,255,255,0.8),inset_0_0_15px_rgba(255,255,255,0.5)]',
+        'p-1.5 relative',
         'transition-all duration-300 cursor-pointer',
-        'w-[80px] h-[80px] border-[3px] border-white',
+        'w-[80px] h-[80px]',
+        isSidebarOpen ? 'bg-base-300/90' : 'bg-base-300/10',
     ].join(' ');
 
     const iconClasses = [
@@ -21,7 +21,7 @@ export default function SidebarToggle() {
         'drop-shadow-[0_0_8px_rgba(255,255,255,1)]',
         'top-[30%] -translate-y-1/2',
         isRTL ? 'end-[30%] translate-x-1/2' : 'start-[30%] -translate-x-1/2',
-        isSidebarOpen ? 'rotate-180' : '',
+        isSidebarOpen ? 'rotate-180 opacity-100' : 'opacity-50',
     ].join(' ');
 
     const handleToggle = () => {

@@ -72,10 +72,7 @@ export default function Sidebar() {
     return (
         <aside
             className={`
-        lg:sticky lg:top-0 fixed top-0 inset-inline-start-0 h-screen 
-        
-        shadow-xl z-10 overflow-hidden
-        ${sidebarVisibilityStyle}
+        lg:sticky lg:top-0 fixed top-0 inset-inline-start-0 h-screen shadow-xl z-10 overflow-hidden ${sidebarVisibilityStyle}
     `}
         >
             <div className="h-full overflow-y-auto scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-transparent">
@@ -87,7 +84,9 @@ export default function Sidebar() {
                                 <MenuItem
                                     key={item.title}
                                     item={item}
-                                    isExpanded={expandedMenu === item.title && clickedMenu === item.title}
+                                    isExpanded={
+                                        expandedMenu === item.title && clickedMenu === item.title
+                                    }
                                     onToggle={() => toggleMenu(item.title)}
                                 />
                             ))}

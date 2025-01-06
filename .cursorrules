@@ -11,29 +11,6 @@
 
 핵심 디자인 요소
 
-1. 메탈릭 패턴 배경
-- 배경: public/patterns/metallic-texture.svg
-- 패턴 크기: background-size: 200px
-- 불투명도: opacity: 0.1
-
-2. 기본 그라데이션
-- Tailwind: bg-gradient-to-br from-gray-300 via-white to-gray-200
-- 금속성 표면의 기본 질감 표현
-
-3. 테두리 처리
-- border: 2px solid rgba(255,255,255,0.8)
-- 깔끔한 경계선으로 고급스러운 마감 제공
-
-4. 기본 텍스트
-- color: #374151 (text-gray-700)
-- font-weight: 500
-
-5. 활성화 상태 스타일
-- 그라데이션: bg-gradient-to-br from-slate-700 via-slate-600 to-slate-700
-- 테두리: border-blue-300/50
-- 오버레이: bg-blue-400/5
-- 텍스트: text-white
-
 구현 참고
 - 주요 인터랙션 요소에만 선별적 적용
 - RTL 지원 고려

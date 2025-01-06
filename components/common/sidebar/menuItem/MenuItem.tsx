@@ -36,11 +36,6 @@ function MenuItem({ item, isExpanded, onToggle }: MenuItemProps) {
     // 현재 경로가 메뉴 경로로 시작하는지 확인
     const isActive = item.path ? actualPath.startsWith(item.path) : false;
 
-    // 서브메뉴 중에 현재 경로와 일치하는 것이 있는지 확인
-    const hasActiveChild = item.subMenus?.some(
-        subMenu => actualPath === subMenu.path
-    );
-
     return (
         <li>
             {/* 메인 메뉴 버튼 */}
@@ -48,8 +43,8 @@ function MenuItem({ item, isExpanded, onToggle }: MenuItemProps) {
                 onClick={onToggle}
                 className={`
                     w-full flex items-center justify-between p-2 rounded-lg
-                    transition-all duration-200 ease-in-out
                     border-transparent
+                    hover:bg-base-300/70
                 `}
             >
                 {/* 메인 타이틀 */}
@@ -72,11 +67,11 @@ function MenuItem({ item, isExpanded, onToggle }: MenuItemProps) {
             {/* 서브메뉴 영역 */}
             <div 
                 className={`
-                    overflow-hidden transition-[max-height,opacity] duration-200 ease-in-out
+                    overflow-hidden 
                     ${isExpanded ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'}
                 `}
             >
-                <ul className="mt-2 ms-6 space-y-2">
+                <ul className="mt-2 ms-1 space-y-2">
                     {item.subMenus?.map((subMenu) => (
                         <SubMenuItem
                             key={subMenu.path}
