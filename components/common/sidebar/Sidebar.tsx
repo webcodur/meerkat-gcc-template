@@ -63,10 +63,10 @@ export default function Sidebar() {
     return (
         <aside
             className={`
-        lg:sticky lg:top-0 fixed top-0 inset-inline-start-0 h-screen shadow-xl z-10 overflow-hidden ${sidebarVisibilityStyle}
+        lg:sticky lg:top-0 fixed top-0 inset-inline-start-0 h-screen shadow-xl z-50 overflow-hidden bg-base-100 ${sidebarVisibilityStyle}
     `}
         >
-            <div className="h-full overflow-y-auto scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-transparent">
+            <div className="h-full overflow-y-auto scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-transparent bg-base-100">
                 <div className={`p-4 ${innerContainerStyle}`}>
                     <SidebarLogo />
                     <nav>
