@@ -1,18 +1,19 @@
+'use client';
+
 import { IoChevronDown } from 'react-icons/io5';
 import type { MenuItem as MenuItemType } from '@/types/sidebar';
 import SubMenuItem from './SubMenuItem';
 import { memo } from 'react';
+import { usePathname } from 'next/navigation';
 
 /**
  * MenuItem 컴포넌트의 Props 인터페이스
  * @property {MenuItemType} item - 메뉴 아이템 데이터
- * @property {string} currentPath - 현재 활성화된 경로
  * @property {boolean} isExpanded - 서브메뉴 확장 여부
  * @property {() => void} onToggle - 서브메뉴 토글 핸들러
  */
 interface MenuItemProps {
     item: MenuItemType;
-    currentPath: string;
     isExpanded: boolean;
     onToggle: () => void;
 }
@@ -26,13 +27,18 @@ interface MenuItemProps {
  * - 활성화 상태에 따른 시각적 피드백 제공
  * - 서브메뉴 확장/축소 기능 지원
  */
-function MenuItem({ item, currentPath, isExpanded, onToggle }: MenuItemProps) {
+function MenuItem({ item, isExpanded, onToggle }: MenuItemProps) {
+    const pathname = usePathname();
+    
+    // 현재 경로에서 locale 부분을 제외한 실제 경로 추출 (/ko/path -> /path)
+    const actualPath = pathname.replace(/^\/[^/]+/, '');
+    
     // 현재 경로가 메뉴 경로로 시작하는지 확인
-    const isActive = item.path ? currentPath.startsWith(item.path) : false;
+    const isActive = item.path ? actualPath.startsWith(item.path) : false;
 
     // 서브메뉴 중에 현재 경로와 일치하는 것이 있는지 확인
     const hasActiveChild = item.subMenus?.some(
-        subMenu => currentPath === subMenu.path
+        subMenu => actualPath === subMenu.path
     );
 
     return (
@@ -43,14 +49,10 @@ function MenuItem({ item, currentPath, isExpanded, onToggle }: MenuItemProps) {
                 className={`
                     w-full flex items-center justify-between p-2 rounded-lg
                     transition-all duration-200 ease-in-out
-                    border
-                    ${(isActive || hasActiveChild)
-                        ? 'bg-gradient-to-br from-slate-700 via-slate-600 to-slate-700 text-white border-blue-300/50 shadow-lg shadow-blue-500/10' 
-                        : 'text-gray-300 border-transparent hover:bg-gradient-to-br hover:from-slate-600/30 hover:to-slate-700/30 hover:border-white/10'
-                    }
+                    border-transparent
                 `}
             >
-                {/* 타이틀 */}
+                {/* 메인 타이틀 */}
                 <span className={isActive ? 'font-medium' : ''}>
                     {item.title}
                 </span>
@@ -62,9 +64,7 @@ function MenuItem({ item, currentPath, isExpanded, onToggle }: MenuItemProps) {
                             isExpanded ? 'rotate-180' : ''
                         }`}
                     >
-                        <IoChevronDown 
-                            className={(isActive || hasActiveChild) ? 'text-blue-300' : 'text-gray-400'} 
-                        />
+                        <IoChevronDown />
                     </div>
                 )}
             </button>
@@ -81,7 +81,6 @@ function MenuItem({ item, currentPath, isExpanded, onToggle }: MenuItemProps) {
                         <SubMenuItem
                             key={subMenu.path}
                             item={subMenu}
-                            currentPath={currentPath}
                         />
                     ))}
                 </ul>

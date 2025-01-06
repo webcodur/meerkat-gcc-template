@@ -58,14 +58,14 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
             <SettingsButton />
 
             {/* Background Pattern */}
-            <div className="fixed inset-0 pointer-events-none">
+            {/* <div className="fixed inset-0 pointer-events-none">
                 <MetallicPatternBrushed className="w-full h-full bg-opacity-80" />
-            </div>
+            </div> */}
 
             {/* RELATIVE CONTENTS */}
             <div className="flex min-h-screen relative">
                 <Sidebar />
-                <div className="flex-1 bg-opacity-50">
+                <div className="flex-1 bg-opacity-50 bg-gray-300">
                     <MainContent>{children}</MainContent>
                 </div>
             </div>

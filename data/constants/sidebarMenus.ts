@@ -20,7 +20,7 @@ export const getMenuItems = (t: (key: string) => string): MenuItem[] => [
     },
     {
         title: 'UI labs',
-        path: '/users',
+        path: '/labs',
         subMenus: [
             { title: 'metalic pagination', path: '/labs/pagination' },
             { title: 'metalic pattern', path: '/labs/pattern' },

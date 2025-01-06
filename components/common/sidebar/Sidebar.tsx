@@ -2,7 +2,6 @@
 'use client';
 
 // 필요한 의존성 모듈 임포트
-import { usePathname } from 'next/navigation';
 import { useAtom } from 'jotai';
 import { sidebarOpenAtom, dirAtom } from '@/atoms';
 import { useState, useCallback, useEffect } from 'react';
@@ -17,6 +16,7 @@ export default function Sidebar() {
 
     // 현재 펼쳐진 메뉴 상태 관리
     const [expandedMenu, setExpandedMenu] = useState<string | null>(null);
+    const [clickedMenu, setClickedMenu] = useState<string | null>(null);
     // 사이드바 메뉴 아이템 목록 가져오기
     const menuItems = getMenuItems(t);
 
@@ -27,21 +27,17 @@ export default function Sidebar() {
     // RTL 여부 확인
     const isRTL = dir === 'rtl';
 
-    // 현재 경로 정보 가져오기
-    const pathname = usePathname();
-
     // 컨텐츠 표시 상태 관리
     const [showContent, setShowContent] = useState(true);
 
     // isOpen 상태 변경 감지 및 애니메이션 처리
     useEffect(() => {
-      // 닫을 때: 먼저 컨텐츠를 숨기고, 그 다음 사이드바를 닫음
+        // 닫을 때: 먼저 컨텐츠를 숨기고, 그 다음 사이드바를 닫음
         if (!isOpen) {
             setShowContent(false);
-            const timer = setTimeout(() => {
-            }, 200);
+            const timer = setTimeout(() => {}, 200);
             return () => clearTimeout(timer);
-        } 
+        }
         // 열 때: 먼저 사이드바를 열고, 그 다음 컨텐츠를 표시
         else {
             setShowContent(false);
@@ -54,6 +50,7 @@ export default function Sidebar() {
 
     // 메뉴 토글 핸들러 - 메모이제이션 적용
     const toggleMenu = useCallback((title: string) => {
+        setClickedMenu(title);
         setExpandedMenu((prev) => (prev === title ? null : title));
     }, []);
 
@@ -72,29 +69,32 @@ export default function Sidebar() {
     // 내부 컨테이너 스타일 - 최소 너비 설정
     const innerContainerStyle = `min-w-[16rem] ${contentVisibilityStyle}`;
 
-    return <aside className={`
+    return (
+        <aside
+            className={`
         lg:sticky lg:top-0 fixed top-0 inset-inline-start-0 h-screen 
-        bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900
+        
         shadow-xl z-10 overflow-hidden
         ${sidebarVisibilityStyle}
-    `}>
-        <div className="h-full overflow-y-auto scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-transparent">
-            <div className={`p-4 ${innerContainerStyle}`}>
-                <SidebarLogo />
-                <nav>
-                    <ul className="space-y-2">
-                        {menuItems.map((item) => (
-                            <MenuItem
-                                key={item.title}
-                                item={item}
-                                currentPath={pathname}
-                                isExpanded={expandedMenu === item.title}
-                                onToggle={() => toggleMenu(item.title)}
-                            />
-                        ))}
-                    </ul>
-                </nav>
+    `}
+        >
+            <div className="h-full overflow-y-auto scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-transparent">
+                <div className={`p-4 ${innerContainerStyle}`}>
+                    <SidebarLogo />
+                    <nav>
+                        <ul className="space-y-2">
+                            {menuItems.map((item) => (
+                                <MenuItem
+                                    key={item.title}
+                                    item={item}
+                                    isExpanded={expandedMenu === item.title && clickedMenu === item.title}
+                                    onToggle={() => toggleMenu(item.title)}
+                                />
+                            ))}
+                        </ul>
+                    </nav>
+                </div>
             </div>
-        </div>
-    </aside>;
+        </aside>
+    );
 }

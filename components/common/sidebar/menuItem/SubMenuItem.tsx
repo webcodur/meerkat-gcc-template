@@ -1,14 +1,18 @@
+'use client';
+
 import Link from 'next/link';
 import type { SubMenuItem as SubMenuItemType } from '@/types/sidebar';
+import { usePathname } from 'next/navigation';
 
 interface SubMenuItemProps {
     item: SubMenuItemType;
-    currentPath: string;
 }
 
-export default function SubMenuItem({ item, currentPath }: SubMenuItemProps) {
+export default function SubMenuItem({ item }: SubMenuItemProps) {
     const SubIcon = item.icon;
-    const isActive = currentPath === item.path;
+    const pathname = usePathname();
+    const pathWithoutLocale = pathname.slice(3)
+    const isActive = pathWithoutLocale === item.path
     
     return (
         <li>
@@ -17,8 +21,8 @@ export default function SubMenuItem({ item, currentPath }: SubMenuItemProps) {
                 className={`
                     block p-2 rounded-lg
                     ${isActive 
-                        ? 'bg-gradient-to-br from-slate-700 via-slate-600 to-slate-700 text-white border border-blue-300/50' 
-                        : 'text-gray-400 hover:bg-slate-700/50'
+                        ? 'text-gray-900 font-bold' 
+                        : 'text-gray-600 font-normal'
                     }
                 `}
             >

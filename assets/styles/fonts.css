@@ -10,11 +10,17 @@
 /* Noto Sans 폰트 (다국어 지원용) */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Sans+KR:wght@400;500;700&family=Noto+Sans+SC:wght@400;500;700&display=swap');
 
+/* Droid Sans 폰트 추가 */
+@import url('https://fonts.googleapis.com/css?family=Droid+Sans:bold');
+
 :root {
     /* 기본 폰트 스택 정의 */
     --font-pretendard: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont,
         system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR',
         'Malgun Gothic', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
+
+    /* Droid Sans 폰트 스택 추가 */
+    --font-droid: 'Droid Sans', var(--font-pretendard);
 
     /* 언어별 폰트 스택 */
     --font-ko: var(--font-pretendard);
@@ -36,14 +42,6 @@ html {
 
 :lang(en) {
     font-family: var(--font-en);
-}
-
-:lang(ja) {
-    font-family: var(--font-jp);
-}
-
-:lang(zh) {
-    font-family: var(--font-cn);
 }
 
 /* 아랍어는 RTL 처리 */
