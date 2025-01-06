@@ -1,5 +1,6 @@
 import { atom } from 'jotai';
 import { atomWithStorage } from 'jotai/utils';
+import type { SubMenuItem } from '@/types/sidebar';
 
 interface AuthState {
     isAuthenticated: boolean;
@@ -25,3 +26,15 @@ export const authAtom = atom<AuthState>({
     isAuthenticated: false,
     user: null,
 });
+
+export const submenuAtom = atom<{
+    isOpen: boolean;
+    items: SubMenuItem[];
+    position: { top: number; left: number } | null;
+}>({
+    isOpen: false,
+    items: [],
+    position: null,
+});
+
+export const expandedMenuAtom = atom<string | null>(null);

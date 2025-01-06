@@ -2,20 +2,17 @@
 
 import { IoChevronDown } from 'react-icons/io5';
 import type { MenuItem as MenuItemType } from '@/types/sidebar';
-import SubMenuItem from './SubMenuItem';
-import { memo } from 'react';
+import { memo, useRef } from 'react';
 import { usePathname } from 'next/navigation';
+import { useAtom } from 'jotai';
+import { submenuAtom, expandedMenuAtom } from '@/atoms';
 
 /**
  * MenuItem 컴포넌트의 Props 인터페이스
  * @property {MenuItemType} item - 메뉴 아이템 데이터
- * @property {boolean} isExpanded - 서브메뉴 확장 여부
- * @property {() => void} onToggle - 서브메뉴 토글 핸들러
  */
 interface MenuItemProps {
     item: MenuItemType;
-    isExpanded: boolean;
-    onToggle: () => void;
 }
 
 /**
@@ -27,59 +24,64 @@ interface MenuItemProps {
  * - 활성화 상태에 따른 시각적 피드백 제공
  * - 서브메뉴 확장/축소 기능 지원
  */
-function MenuItem({ item, isExpanded, onToggle }: MenuItemProps) {
+function MenuItem({ item }: MenuItemProps) {
     const pathname = usePathname();
+    const buttonRef = useRef<HTMLButtonElement>(null);
+    const [, setSubmenu] = useAtom(submenuAtom);
+    const [expandedMenu, setExpandedMenu] = useAtom(expandedMenuAtom);
     
-    // 현재 경로에서 locale 부분을 제외한 실제 경로 추출 (/ko/path -> /path)
     const actualPath = pathname.replace(/^\/[^/]+/, '');
-    
-    // 현재 경로가 메뉴 경로로 시작하는지 확인
     const isActive = item.path ? actualPath.startsWith(item.path) : false;
+    const isExpanded = expandedMenu === item.title;
+
+    const handleToggleMenu = (e: React.MouseEvent) => {
+        e.stopPropagation(); // 이벤트 전파 중단
+        
+        const buttonRect = buttonRef.current?.getBoundingClientRect();
+        if (!buttonRect || !item.subMenus) return;
+
+        if (isExpanded) {
+            // 이미 열려있으면 닫기
+            setExpandedMenu(null);
+            setSubmenu({ isOpen: false, items: [], position: null });
+        } else {
+            // 닫혀있으면 열기
+            setExpandedMenu(item.title);
+            setSubmenu({
+                isOpen: true,
+                items: item.subMenus,
+                position: {
+                    top: buttonRect.top,
+                    left: buttonRect.right + 8,
+                }
+            });
+        }
+    };
 
     return (
-        <li>
-            {/* 메인 메뉴 버튼 */}
+        <li className="relative">
             <button
-                onClick={onToggle}
+                ref={buttonRef}
+                onClick={handleToggleMenu}
+                data-menu-button
                 className={`
                     w-full flex items-center justify-between p-2 rounded-lg
                     border-transparent
                     hover:bg-base-300/70
                 `}
             >
-                {/* 메인 타이틀 */}
                 <span className={isActive ? 'font-medium' : ''}>
                     {item.title}
                 </span>
 
-                {/* 확장/축소 안내 아이콘 */}
                 {item.subMenus && (
                     <div 
-                        className={`transition-transform duration-200 ${
-                            isExpanded ? 'rotate-180' : ''
-                        }`}
+                        className={`transition-transform duration-200 ${isExpanded ? 'rotate-180' : ''}`}
                     >
                         <IoChevronDown />
                     </div>
                 )}
             </button>
-            
-            {/* 서브메뉴 영역 */}
-            <div 
-                className={`
-                    overflow-hidden 
-                    ${isExpanded ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'}
-                `}
-            >
-                <ul className="mt-2 ms-1 space-y-2">
-                    {item.subMenus?.map((subMenu) => (
-                        <SubMenuItem
-                            key={subMenu.path}
-                            item={subMenu}
-                        />
-                    ))}
-                </ul>
-            </div>
         </li>
     );
 }

@@ -4,7 +4,7 @@
 // 필요한 의존성 모듈 임포트
 import { useAtom } from 'jotai';
 import { sidebarOpenAtom, dirAtom } from '@/atoms';
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
 import { getMenuItems } from '@/data/constants/sidebarMenus';
 import MenuItem from '@/components/common/sidebar/menuItem/MenuItem';
@@ -14,9 +14,6 @@ export default function Sidebar() {
     // 다국어 번역 훅 초기화
     const t = useTranslations();
 
-    // 현재 펼쳐진 메뉴 상태 관리
-    const [expandedMenu, setExpandedMenu] = useState<string | null>(null);
-    const [clickedMenu, setClickedMenu] = useState<string | null>(null);
     // 사이드바 메뉴 아이템 목록 가져오기
     const menuItems = getMenuItems(t);
 
@@ -48,12 +45,6 @@ export default function Sidebar() {
         }
     }, [isOpen]);
 
-    // 메뉴 토글 핸들러 - 메모이제이션 적용
-    const toggleMenu = useCallback((title: string) => {
-        setClickedMenu(title);
-        setExpandedMenu((prev) => (prev === title ? null : title));
-    }, []);
-
     // 사이드바 너비/위치 전환 애니메이션 - 지연 시간 추가
     const sidebarVisibilityStyle = isOpen
         ? 'w-64 translate-x-0 lg:translate-x-0 transition-[width,transform] duration-200 ease-in-out'
@@ -84,10 +75,6 @@ export default function Sidebar() {
                                 <MenuItem
                                     key={item.title}
                                     item={item}
-                                    isExpanded={
-                                        expandedMenu === item.title && clickedMenu === item.title
-                                    }
-                                    onToggle={() => toggleMenu(item.title)}
                                 />
                             ))}
                         </ul>
