@@ -17,6 +17,9 @@ import LoadingUI from '@/components/ui/LoadingUI';
 import { fi, md, fo } from '@/data/constants/animation';
 
 export default function ClientLayout({ children }: { children: React.ReactNode }) {
+
+    /* ============================ HOOKS ============================ */
+    
     const pathname = usePathname();
     const searchParams = useSearchParams();
 
@@ -29,6 +32,8 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
     const [isMounted, setIsMounted] = useState(false);
     const [isMinLoadingComplete, setIsMinLoadingComplete] = useState(false);
     const [showContent, setShowContent] = useState(false);
+
+    /* ============================ EFFECT ============================ */
 
     // HTML 속성 설정
     useEffect(() => {
@@ -76,6 +81,8 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
         }, fi + md + fo);
         return () => clearTimeout(timer);
     }, []);
+
+    /* ============================ TSX ============================ */
 
     // 초기 마운트 전에는 아무것도 렌더링하지 않음
     if (!isMounted) return null;
