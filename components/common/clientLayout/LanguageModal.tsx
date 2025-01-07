@@ -36,7 +36,7 @@ export default function LanguageModal() {
             onClose={() => setModal(null)}
             title={t('language')}
         >
-            <div className="space-y-6 relative z-10">
+            <div className="space-y-6 relative">
                 <div className="space-y-2">
                     {[
                         { code: 'ko', label: '한국어' },

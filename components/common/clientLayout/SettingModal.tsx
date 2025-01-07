@@ -38,13 +38,13 @@ export default function SettingModal() {
             onClose={() => setModal(null)}
             title={t('Settings')}
         >
-            <div className="space-y-6 relative z-10">
+            <div className="space-y-6 relative">
                 <div className="space-y-2">
                     <label className="text-sm font-medium text-gray-700">{t('theme')}</label>
                     <select
                         value={theme}
                         onChange={handleThemeChange}
-                        className="select w-full bg-base-100 cursor-pointer relative z-20 pointer-events-auto"
+                        className="select w-full bg-base-100 cursor-pointer relative z-30 pointer-events-auto"
                     >
                         <option value="light">{t('theme_light')}</option>
                         <option value="dark">{t('theme_dark')}</option>
