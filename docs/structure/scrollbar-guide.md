@@ -18,7 +18,7 @@
 
 #### 1. 전역 스크롤바 스타일 (globals.css)
 
-```css
+``` css
 /* 공통 스크롤바 스타일 */
 ::-webkit-scrollbar {
     width: 6px;
@@ -107,4 +107,3 @@
 - CSS Writing Mode
 - RTL/LTR 레이아웃 시스템
 - 웹 접근성 가이드라인
-``` 

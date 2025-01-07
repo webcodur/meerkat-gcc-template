@@ -73,91 +73,16 @@ main {
     direction: ltr;
 }
 
-/* 커스텀 커서 스타일 */
-/* body {
-    cursor: url('/icons/mouse/default.svg') 0 0, auto;
-} */
-
-/* *:not(button):not(a):not([role='button']):not(select):not(summary):not([type='button']):not([type='submit']):not([type='reset']):not(.cursor-pointer):not(input):not(textarea):not([title]):not([data-tooltip]):not([draggable='true']):not([disabled]):not(.disabled):not(p):not(span):not(h1):not(h2):not(h3):not(h4):not(h5):not(h6):not(label):not(div[contenteditable="true"]) {
-    cursor: url('/icons/mouse/default.svg') 0 0, auto !important;
-}
-
- */
-
-/* button,
-a,
-[role='button'],
-select,
-summary,
-[type='button'],
-[type='submit'],
-[type='reset'],
-.cursor-pointer,
-table tr[class*='cursor-pointer'],
-table td[class*='cursor-pointer'],
-aside li button,
-aside li a,
-.btn,
-.join button {
-    cursor: url('/icons/mouse/pointer.svg') 6 2, pointer !important;
-}
-
-input:not([type='button']):not([type='submit']):not([type='reset']),
-textarea {
-    cursor: url('/icons/mouse/text.svg') 6 2, text;
-}
-
-::selection,
-::-moz-selection {
-    cursor: url('/icons/mouse/text.svg') 6 2, text;
-}
-
-*:hover {
-    cursor: inherit;
-}
-
-p:hover,
-span:hover,
-h1:hover,
-h2:hover,
-h3:hover,
-h4:hover,
-h5:hover,
-h6:hover,
-label:hover,
-div[contenteditable="true"]:hover {
-    cursor: url('/icons/mouse/text.svg') 6 2, text;
-}
-
-[title]:not(td):not(th):not(input):not(button):not(a),
-[data-tooltip] {
-    cursor: url('/icons/mouse/help.svg') 6 2, help;
-}
-
-[draggable='true'] {
-    cursor: url('/icons/mouse/move.svg') 6 2, move;
-}
-
-[disabled],
-.disabled,
-button:disabled,
-input:disabled,
-select:disabled,
-textarea:disabled {
-    cursor: url('/icons/mouse/notAllowed.svg') 6 2, not-allowed;
-}
-
 /* 언어별 폰트 적용 */
 :lang(ko) {
-    font-family: var(--font-ko), var(--font-pretendard);
+    font-family: var(--font-ko);
 }
 
 :lang(en) {
-    font-family: var(--font-en), var(--font-pretendard);
+    font-family: var(--font-en);
 }
 
-/* 아랍어는 RTL 처리 */
 :lang(ar) {
-    font-family: var(--font-ar), var(--font-pretendard);
+    font-family: var(--font-ar);
     direction: rtl;
 }

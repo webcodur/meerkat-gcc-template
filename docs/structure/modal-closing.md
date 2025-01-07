@@ -65,4 +65,4 @@ useEffect(() => {
 >
   모달 내용
 </MetallicModal>
-``` 
+```
