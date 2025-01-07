@@ -11,8 +11,8 @@ export default function Breadcrumb() {
     const pathnameWithoutLocale = (usePathname() || '/').slice(3);
 
     const msClass = sidebarOpen 
-        ? 'ms-1 transition-[margin] duration-400 ease-in-out' 
-        : 'ms-7 transition-[margin] duration-400 ease-in';
+        ? 'ms-5 transition-[margin] duration-400 ease-in-out' 
+        : 'ms-12 transition-[margin] duration-400 ease-in';
 
     const t = useTranslations();
     const menuItems = getMenuItems(t);

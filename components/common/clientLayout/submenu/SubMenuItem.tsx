@@ -5,11 +5,13 @@
  */
 'use client';
 
+import { useEffect } from 'react';
 import Link from 'next/link';
 import type { SubMenuItem as SubMenuItemType } from '@/types/sidebar';
 import { usePathname } from 'next/navigation';
 import { useAtom } from 'jotai';
-import { submenuAtom, expandedMenuAtom } from '@/atoms';
+import { submenuAtom, expandedMenuAtom, isPageChangedAtom } from '@/atoms';
+
 
 interface SubMenuItemProps {
     item: SubMenuItemType;
@@ -21,12 +23,14 @@ export default function SubMenuItem({ item }: SubMenuItemProps) {
     const isActive = pathWithoutLocale === item.path
     const [, setSubmenu] = useAtom(submenuAtom);
     const [, setExpandedMenu] = useAtom(expandedMenuAtom);
+    const [, setIsPageChanged] = useAtom(isPageChangedAtom);
     
     const handleClick = () => {
+        setIsPageChanged(true);
         setSubmenu({ isOpen: false, items: [], position: null });
         setExpandedMenu(null);
     };
-    
+
     return (
         <li className="list-none">
             <Link

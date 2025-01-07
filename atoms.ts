@@ -22,6 +22,8 @@ export const langAtom = atomWithStorage<'ko' | 'en' | 'ar'>('lang', 'ko');
 export const currentPathAtom = atom<string>('/');
 export const sidebarOpenAtom = atom<boolean>(true);
 export const modalAtom = atom<ModalType>(null);
+export const isPageChangedAtom = atom<boolean>(false);
+
 export const authAtom = atom<AuthState>({
     isAuthenticated: false,
     user: null,
@@ -38,3 +40,6 @@ export const submenuAtom = atom<{
 });
 
 export const expandedMenuAtom = atom<string | null>(null);
+
+// 사이드바 초기 마운트 상태 추적
+export const sidebarInitialMountAtom = atom<boolean>(true);

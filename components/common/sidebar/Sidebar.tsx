@@ -3,7 +3,7 @@
 
 // 필요한 의존성 모듈 임포트
 import { useAtom } from 'jotai';
-import { sidebarOpenAtom, dirAtom } from '@/atoms';
+import { sidebarOpenAtom, dirAtom, sidebarInitialMountAtom } from '@/atoms';
 import { useState, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
 import { getMenuItems } from '@/data/constants/sidebarMenus';
@@ -24,47 +24,72 @@ export default function Sidebar() {
     // RTL 여부 확인
     const isRTL = dir === 'rtl';
 
+    // 컨기 마운트 상태 관리
+    const [isInitialMount, setIsInitialMount] = useAtom(sidebarInitialMountAtom);
     // 컨텐츠 표시 상태 관리
     const [showContent, setShowContent] = useState(true);
+    const [isTransforming, setIsTransforming] = useState(false);
+
+    // 초기 마운트 시에는 transition 없이 바로 적용
+    useEffect(() => {
+        if (isInitialMount) {
+            setShowContent(isOpen);
+            setIsInitialMount(false);
+        }
+    }, []);
 
     // isOpen 상태 변경 감지 및 애니메이션 처리
     useEffect(() => {
-        // 닫을 때: 먼저 컨텐츠를 숨기고, 그 다음 사이드바를 닫음
+        if (isInitialMount) return;
+
         if (!isOpen) {
+            // 닫을 때: 먼저 opacity 0으로 변경
             setShowContent(false);
-            const timer = setTimeout(() => {}, 200);
+            // opacity 애니메이션이 끝난 후 transform 적용
+            const timer = setTimeout(() => {
+                setIsTransforming(true);
+            }, 150);
             return () => clearTimeout(timer);
-        }
-        // 열 때: 먼저 사이드바를 열고, 그 다음 컨텐츠를 표시
-        else {
-            setShowContent(false);
+        } else {
+            // 열 때: transform 먼저 적용
+            setIsTransforming(false);
+            // transform 애니메이션이 끝난 후 opacity 1로 변경
             const timer = setTimeout(() => {
                 setShowContent(true);
             }, 200);
             return () => clearTimeout(timer);
         }
-    }, [isOpen]);
+    }, [isOpen, isInitialMount]);
 
-    // 사이드바 너비/위치 전환 애니메이션 - 지연 시간 추가
-    const sidebarVisibilityStyle = isOpen
-        ? 'w-64 translate-x-0 lg:translate-x-0 transition-[width,transform] duration-200 ease-in-out'
-        : isRTL
-        ? 'w-0 translate-x-full lg:translate-x-0 transition-[width,transform] duration-200 ease-in-out delay-150'
-        : 'w-0 -translate-x-full lg:translate-x-0 transition-[width,transform] duration-200 ease-in-out delay-150';
+    // 사이드바 너비/위치 스타일
+    const sidebarWidthStyle = (isOpen || !isTransforming) ? 'w-64' : 'w-0';
+    const sidebarTransformStyle = (!isOpen && isTransforming)
+        ? isRTL
+            ? 'translate-x-full'
+            : '-translate-x-full'
+        : 'translate-x-0';
 
-    // 컨텐츠 투명도 전환 애니메이션 - duration 조정
+    // transition 효과는 초기 마운트가 아닐 때만 적용
+    const transitionStyle = !isInitialMount
+        ? 'transition-[width,transform] duration-200 ease-in-out'
+        : '';
+
+    const sidebarVisibilityStyle = `${sidebarWidthStyle} ${sidebarTransformStyle} ${transitionStyle}`;
+
+    // 컨텐츠 투명도 스타일도 초기 마운트 여부에 따라 transition 적용
     const contentVisibilityStyle = showContent
-        ? 'opacity-100 scale-100 transition-[opacity,transform] duration-150 ease-in-out'
-        : 'opacity-0 scale-95 transition-[opacity,transform] duration-150 ease-in-out';
+        ? `opacity-100 scale-100 ${!isInitialMount ? 'transition-[opacity,transform] duration-150 ease-in-out' : ''}`
+        : `opacity-0 scale-95 ${!isInitialMount ? 'transition-[opacity,transform] duration-150 ease-in-out' : ''}`;
 
-    // 내부 컨테이너 스타일 - 최소 너비 설정
     const innerContainerStyle = `min-w-[16rem] ${contentVisibilityStyle}`;
 
     return (
         <aside
             className={`
-        lg:sticky lg:top-0 fixed top-0 inset-inline-start-0 h-screen shadow-xl z-50 overflow-hidden bg-base-100 ${sidebarVisibilityStyle}
-    `}
+                lg:sticky lg:top-0 fixed top-0 inset-inline-start-0 h-screen 
+                shadow-xl z-50 overflow-hidden bg-base-100 
+                ${sidebarVisibilityStyle}
+            `}
         >
             <div className="h-full overflow-y-auto scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-transparent bg-base-100">
                 <div className={`p-4 ${innerContainerStyle}`}>
