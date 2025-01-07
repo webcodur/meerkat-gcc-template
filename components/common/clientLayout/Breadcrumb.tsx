@@ -28,20 +28,20 @@ export default function Breadcrumb() {
         <div className={`text-md breadcrumbs mt-4 font-medium ${msClass}`}>
             <ul>
                 <li>
-                    <Link href="/" className="flex items-center gap-1">
-                        <IoHome className="w-4 h-4 " />   
+                    <Link href="/" className="flex items-center gap-1 h-6">
+                        <IoHome className="w-4 h-4" />   
                     </Link>
                 </li>
                 {currentMenu && (
                     <li>
-                        <span className="flex items-center gap-1">
+                        <span className="flex items-center gap-1 h-6">
                             {currentMenu.title}
                         </span>
                     </li>
                 )}
                 {currentSubMenu && (
                     <li>
-                        <span className="flex items-center gap-1">
+                        <span className="flex items-center gap-1 h-6">
                             {currentSubMenu.title}
                         </span>
                     </li>
