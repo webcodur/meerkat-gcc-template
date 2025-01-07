@@ -13,9 +13,11 @@ import SubMenu from './submenu/SubMenu';
 import Breadcrumb from './Breadcrumb';
 
 export default function ClientLayout({ children }: { children: React.ReactNode }) {
+    
     const [lang] = useAtom(langAtom);
     const [theme] = useAtom(themeAtom);
     const [dir] = useAtom(dirAtom);
+    
     const [messages, setMessages] = useState<Record<string, string>>({});
     const [isLoading, setIsLoading] = useState(true);
     const [isMounted, setIsMounted] = useState(false);
@@ -63,8 +65,10 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
             <div className="flex min-h-screen relative">
                 <Sidebar />
                 <div className="flex-1 bg-opacity-50 bg-gray-300">
+                    <MainContent>
                     <Breadcrumb />
-                    <MainContent>{children}</MainContent>
+                        {children}
+                    </MainContent>
                 </div>
             </div>
         </NextIntlClientProvider>
