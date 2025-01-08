@@ -32,7 +32,7 @@ export const authAtom = atom<AuthState>({
 export const submenuAtom = atom<{
     isOpen: boolean;
     items: SubMenuItem[];
-    position: { top: number; left: number } | null;
+    position: { top: number; start: number } | null;
 }>({
     isOpen: false,
     items: [],

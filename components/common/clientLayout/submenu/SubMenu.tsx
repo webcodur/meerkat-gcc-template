@@ -1,11 +1,12 @@
 import React, { useEffect, useRef } from 'react';
 import SubMenuItem from './SubMenuItem';
-import { submenuAtom, expandedMenuAtom } from '@/atoms';
+import { submenuAtom, expandedMenuAtom, dirAtom } from '@/atoms';
 import { useAtom } from 'jotai';
 
 const SubMenu = () => {
     const [submenu, setSubmenu] = useAtom(submenuAtom);
     const [, setExpandedMenu] = useAtom(expandedMenuAtom);
+    const [dir] = useAtom(dirAtom);
     const menuRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
@@ -31,10 +32,11 @@ const SubMenu = () => {
         <>
             {submenu.isOpen && submenu.position && (
                 <div
-                    className="fixed z-[100]"
                     style={{
-                        top: submenu.position.top,
-                        left: submenu.position.left,
+                        position: 'absolute',
+                        top: submenu?.position?.top,
+                        [dir === 'rtl' ? 'right' : 'left']: submenu?.position?.start,
+                        pointerEvents: 'auto',
                     }}
                 >
                     <div

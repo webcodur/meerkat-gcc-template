@@ -5,7 +5,7 @@ import type { MenuItem as MenuItemType } from '@/types/sidebar';
 import { memo, useRef, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import { useAtom } from 'jotai';
-import { submenuAtom, expandedMenuAtom } from '@/atoms';
+import { submenuAtom, expandedMenuAtom, dirAtom } from '@/atoms';
 import SubMenuItem from '@/components/common/clientLayout/submenu/SubMenuItem';
 import { createPortal } from 'react-dom';
 
@@ -32,6 +32,7 @@ function MenuItem({ item }: MenuItemProps) {
     const menuRef = useRef<HTMLDivElement>(null);
     const [submenu, setSubmenu] = useAtom(submenuAtom);
     const [expandedMenu, setExpandedMenu] = useAtom(expandedMenuAtom);
+    const [dir] = useAtom(dirAtom);
     
     const actualPath = pathname.replace(/^\/[^/]+/, '');
     const isActive = item.path ? actualPath.startsWith(item.path) : false;
@@ -57,24 +58,24 @@ function MenuItem({ item }: MenuItemProps) {
     }, [setSubmenu, setExpandedMenu]);
 
     const handleToggleMenu = (e: React.MouseEvent) => {
-        e.stopPropagation(); // 이벤트 전파 중단
+        e.stopPropagation();
         
         const buttonRect = buttonRef.current?.getBoundingClientRect();
         if (!buttonRect || !item.subMenus) return;
 
         if (isExpanded) {
-            // 이미 열려있으면 닫기
             setExpandedMenu(null);
             setSubmenu({ isOpen: false, items: [], position: null });
         } else {
-            // 닫혀있으면 열기
             setExpandedMenu(item.title);
             setSubmenu({
                 isOpen: true,
                 items: item.subMenus,
                 position: {
                     top: buttonRect.top,
-                    left: buttonRect.right + 8,
+                    start: dir === 'rtl' ? 
+                        window.innerWidth - buttonRect.left + 8 : 
+                        buttonRect.right + 8,
                 }
             });
         }
@@ -88,7 +89,7 @@ function MenuItem({ item }: MenuItemProps) {
                 className="fixed z-[9999]"
                 style={{
                     top: submenu.position.top,
-                    left: submenu.position.left,
+                    [dir === 'rtl' ? 'right' : 'left']: submenu.position.start,
                 }}
             >
                 <div
