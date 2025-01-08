@@ -11,7 +11,6 @@ import SettingsButton from '@/components/common/clientLayout/fixedContents/Setti
 import SidebarToggle from '@/components/common/clientLayout/fixedContents/SidebarToggle';
 import MainContent from '@/components/common/clientLayout/MainContent';
 import LanguageButton from '@/components/common/clientLayout/fixedContents/LanguageButton';
-import SubMenu from '@/components/common/clientLayout/submenu/SubMenu';
 import Breadcrumb from '@/components/common/clientLayout/Breadcrumb';
 import LoadingUI from '@/components/ui/LoadingUI';
 import { fi, md, fo } from '@/data/constants/animation';
@@ -100,7 +99,6 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
                 <SidebarToggle />
                 <LanguageButton />
                 <SettingsButton />
-                <SubMenu />
 
                 {/* RELATIVE CONTENTS */}
                 <div className="flex min-h-screen relative">
