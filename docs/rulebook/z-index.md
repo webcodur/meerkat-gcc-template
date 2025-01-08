@@ -1,4 +1,4 @@
-# Z-Index Guide Book
+# Z-Index Book
 
 이 문서는 프로젝트에서 사용되는 z-index 값들의 체계적인 관리를 위한 가이드입니다.
 
@@ -7,7 +7,6 @@
 ### `z-0`: 최하단 레이어
 
 * 배경 패턴 (`MetallicPatternVertical`)
-* 3D 변환 효과 (`translate-z-0`)
 
 ### `z-30`: 모달 오버레이
 
