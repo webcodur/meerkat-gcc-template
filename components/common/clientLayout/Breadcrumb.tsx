@@ -11,8 +11,8 @@ export default function Breadcrumb() {
   const pathnameWithoutLocale = (usePathname() || '/').slice(3);
 
   const msClass = sidebarOpen
-    ? 'ms-5 transition-[margin] duration-400 ease-in-out'
-    : 'ms-12 transition-[margin] duration-400 ease-in';
+    ? 'ms-[0px] transition-[margin] duration-400 ease-in-out'
+    : 'ms-[30px] transition-[margin] duration-400 ease-in';
 
   const t = useTranslations();
   const menuItems = getMenuItems(t);
@@ -25,7 +25,7 @@ export default function Breadcrumb() {
   );
 
   return (
-    <div className={`text-md breadcrumbs mt-4 font-medium ${msClass}`}>
+    <div className={`text-md breadcrumbs mt-4 font-medium ${msClass} `}>
       <ul>
         <li>
           <Link href="/" className="flex items-center gap-1 h-6">

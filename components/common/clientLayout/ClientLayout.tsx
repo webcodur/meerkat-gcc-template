@@ -11,7 +11,6 @@ import SettingsButton from '@/components/common/clientLayout/fixedContents/Setti
 import SidebarToggle from '@/components/common/clientLayout/fixedContents/SidebarToggle';
 import MainContent from '@/components/common/clientLayout/MainContent';
 import LanguageButton from '@/components/common/clientLayout/fixedContents/LanguageButton';
-import Breadcrumb from '@/components/common/clientLayout/Breadcrumb';
 import LoadingUI from '@/components/ui/LoadingUI';
 import { fi, md, fo } from '@/data/constants/animation';
 
@@ -107,13 +106,7 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
         <div className="flex min-h-screen relative">
           <Sidebar />
           <div className="flex-1 bg-gray-300 relative">
-            <div className="absolute w-full z-10 bg-gray-300">
-              <Breadcrumb />
-            </div>
-            <MainContent>
-              <div className="h-16"></div> {/* Breadcrumb 높이만큼의 여백 */}
-              {children}
-            </MainContent>
+            <MainContent>{children}</MainContent>
           </div>
         </div>
       </div>

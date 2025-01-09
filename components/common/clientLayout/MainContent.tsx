@@ -2,6 +2,8 @@
 
 import { useAtom } from 'jotai';
 import { dirAtom, isPageChangedAtom } from '@/atoms';
+import Breadcrumb from '@/components/common/clientLayout/Breadcrumb';
+
 
 /**
  * MainContent 컴포넌트
@@ -30,6 +32,7 @@ export default function MainContent({ children }: { children: React.ReactNode })
           isPageChanged ? 'opacity-0' : 'opacity-100'
         }`}
       >
+        <Breadcrumb />
         {children}
       </div>
     </main>
