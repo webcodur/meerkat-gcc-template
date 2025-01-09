@@ -4,7 +4,6 @@ import { useAtom } from 'jotai';
 import { dirAtom, isPageChangedAtom } from '@/atoms';
 import Breadcrumb from '@/components/common/clientLayout/Breadcrumb';
 
-
 /**
  * MainContent 컴포넌트
  *
@@ -27,13 +26,15 @@ export default function MainContent({ children }: { children: React.ReactNode })
                 relative flex-1 w-full 
             `}
     >
-      <div
-        className={`absolute inset-0 px-6 overflow-y-auto transition-all duration-400 ${
-          isPageChanged ? 'opacity-0' : 'opacity-100'
-        }`}
-      >
+      <div className={`absolute inset-0 px-6 overflow-y-auto`}>
         <Breadcrumb />
-        {children}
+        <div
+          className={`h-16 transition-all duration-400 ${
+            isPageChanged ? 'opacity-0' : 'opacity-100'
+          }`}
+        >
+          {children}
+        </div>
       </div>
     </main>
   );
