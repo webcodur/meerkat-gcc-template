@@ -7,46 +7,42 @@ import { getMenuItems } from '@/data/constants/sidebarMenus';
 import { useTranslations } from 'next-intl';
 
 export default function Breadcrumb() {
-    const [sidebarOpen] = useAtom(sidebarOpenAtom);
-    const pathnameWithoutLocale = (usePathname() || '/').slice(3);
+  const [sidebarOpen] = useAtom(sidebarOpenAtom);
+  const pathnameWithoutLocale = (usePathname() || '/').slice(3);
 
-    const msClass = sidebarOpen 
-        ? 'ms-5 transition-[margin] duration-400 ease-in-out' 
-        : 'ms-12 transition-[margin] duration-400 ease-in';
+  const msClass = sidebarOpen
+    ? 'ms-5 transition-[margin] duration-400 ease-in-out'
+    : 'ms-12 transition-[margin] duration-400 ease-in';
 
-    const t = useTranslations();
-    const menuItems = getMenuItems(t);
+  const t = useTranslations();
+  const menuItems = getMenuItems(t);
 
-    const currentMenu = menuItems.find(menu => 
-        menu.path && pathnameWithoutLocale.startsWith(menu.path)
-    );
-    const currentSubMenu = currentMenu?.subMenus?.find(subMenu => 
-        pathnameWithoutLocale === subMenu.path
-    );
+  const currentMenu = menuItems.find(
+    (menu) => menu.path && pathnameWithoutLocale.startsWith(menu.path)
+  );
+  const currentSubMenu = currentMenu?.subMenus?.find(
+    (subMenu) => pathnameWithoutLocale === subMenu.path
+  );
 
-    return (
-        <div className={`text-md breadcrumbs mt-4 font-medium ${msClass}`}>
-            <ul>
-                <li>
-                    <Link href="/" className="flex items-center gap-1 h-6">
-                        <IoHome className="w-4 h-4" />   
-                    </Link>
-                </li>
-                {currentMenu && (
-                    <li>
-                        <span className="flex items-center gap-1 h-6">
-                            {currentMenu.title}
-                        </span>
-                    </li>
-                )}
-                {currentSubMenu && (
-                    <li>
-                        <span className="flex items-center gap-1 h-6">
-                            {currentSubMenu.title}
-                        </span>
-                    </li>
-                )}
-            </ul>
-        </div>
-    );
+  return (
+    <div className={`text-md breadcrumbs mt-4 font-medium ${msClass}`}>
+      <ul>
+        <li>
+          <Link href="/" className="flex items-center gap-1 h-6">
+            <IoHome className="w-4 h-4" />
+          </Link>
+        </li>
+        {currentMenu && (
+          <li>
+            <span className="flex items-center gap-1 h-6">{currentMenu.title}</span>
+          </li>
+        )}
+        {currentSubMenu && (
+          <li>
+            <span className="flex items-center gap-1 h-6">{currentSubMenu.title}</span>
+          </li>
+        )}
+      </ul>
+    </div>
+  );
 }

@@ -15,23 +15,23 @@ import { dirAtom, isPageChangedAtom } from '@/atoms';
  */
 
 export default function MainContent({ children }: { children: React.ReactNode }) {
-    const [dir] = useAtom(dirAtom);
-    const [isPageChanged] = useAtom(isPageChangedAtom);
+  const [dir] = useAtom(dirAtom);
+  const [isPageChanged] = useAtom(isPageChangedAtom);
 
-    return (
-        <main
-            dir={dir}
-            className={`
+  return (
+    <main
+      dir={dir}
+      className={`
                 relative flex-1 w-full 
             `}
-        >
-            <div
-                className={`absolute inset-0 px-6 overflow-y-auto transition-all duration-400 ${
-                    isPageChanged ? 'opacity-0' : 'opacity-100'
-                }`}
-            >
-                {children}
-            </div>
-        </main>
-    );
+    >
+      <div
+        className={`absolute inset-0 px-6 overflow-y-auto transition-all duration-400 ${
+          isPageChanged ? 'opacity-0' : 'opacity-100'
+        }`}
+      >
+        {children}
+      </div>
+    </main>
+  );
 }
