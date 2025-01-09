@@ -33,7 +33,7 @@ export default function LoadingUI({
             clearTimeout(fadeInTimer);
             clearTimeout(fadeOutTimer);
         };
-    }, []);
+    }, [ topScene, botScene ]);
 
     return (
         <div className={`flex justify-center items-center ${fullHeight ? 'h-full' : ''} ${className}`}>
