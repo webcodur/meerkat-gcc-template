@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import '@/app/globals.css';
 import { useLocale } from 'next-intl';
-import { pretendard, dmSerifText, cairo } from './fonts';
 
 export const metadata: Metadata = {
   title: '주차 관제 시스템',
@@ -16,12 +15,7 @@ export default function RootLayout({
   const locale = useLocale();
 
   return (
-    <html
-      data-theme="light"
-      dir="ltr"
-      lang={locale}
-      className={`${pretendard.variable} ${dmSerifText.variable} ${cairo.variable}`}
-    >
+    <html data-theme="light" dir="ltr" lang={locale}>
       <body>{children}</body>
     </html>
   );
