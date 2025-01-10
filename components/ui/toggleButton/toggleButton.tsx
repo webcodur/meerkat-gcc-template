@@ -36,7 +36,7 @@ const Switch: React.FC<SwitchProps> = ({ checked, onChange }) => {
     top: '16px',
     left: '20px',
     borderRadius: '24px',
-    backgroundColor: checked ? '#00c0d2' : '#3b3b3d',
+    backgroundColor: checked ? '#aadee2' : '#3b3b3d',
     boxShadow: 'inset rgba(0,0,0,.7) 0 6px 12px',
     transition: 'background-color .3s linear',
     zIndex: 1,
