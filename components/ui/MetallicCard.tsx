@@ -18,11 +18,9 @@ export default function MetallicCard({ children, className = '' }: MetallicCardP
     >
       {/* 내부 글로우 효과 */}
       <div className="absolute inset-0 bg-white/10 shadow-inner"></div>
-      
+
       {/* 콘텐츠 */}
-      <div className="relative">
-        {children}
-      </div>
+      <div className="relative">{children}</div>
     </div>
   );
-} 
+}

@@ -29,7 +29,7 @@ export default function Breadcrumb() {
       <ul>
         <li>
           <Link href="/" className="flex items-center gap-1 h-6">
-            <IoHome className="w-4 h-4" />
+            <IoHome className="w-4 h-4" /> 백두산주차장
           </Link>
         </li>
         {currentMenu && (

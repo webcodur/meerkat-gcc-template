@@ -1,12 +1,12 @@
-import { Noto_Sans_KR, DM_Serif_Text, Cairo } from 'next/font/google'
-import localFont from 'next/font/local'
+import { Noto_Sans_KR, DM_Serif_Text, Cairo } from 'next/font/google';
+import localFont from 'next/font/local';
 
 // Pretendard Variable 폰트 설정
 export const pretendard = localFont({
   src: '../assets/fonts/PretendardVariable.woff2',
   variable: '--font-pretendard',
   display: 'swap',
-})
+});
 
 // Noto Sans KR 설정
 export const notoSansKr = Noto_Sans_KR({
@@ -14,7 +14,7 @@ export const notoSansKr = Noto_Sans_KR({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-ko',
-})
+});
 
 // DM Serif Text 설정
 export const dmSerifText = DM_Serif_Text({
@@ -22,7 +22,7 @@ export const dmSerifText = DM_Serif_Text({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-en',
-})
+});
 
 // Cairo 설정
 export const cairo = Cairo({
@@ -30,4 +30,4 @@ export const cairo = Cairo({
   subsets: ['arabic'],
   display: 'swap',
   variable: '--font-ar',
-}) 
+});

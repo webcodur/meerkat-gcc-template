@@ -10,6 +10,7 @@
     },
     "dependencies": {
         "@tanstack/react-query": "^5.62.11",
+        "@tanstack/react-query-devtools": "^5.63.0",
         "daisyui": "^4.12.23",
         "date-fns": "^4.1.0",
         "jotai": "^2.11.0",

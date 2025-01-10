@@ -3,86 +3,86 @@
 @tailwind utilities;
 
 :root {
-    --foreground-rgb: 0, 0, 0;
-    --background-rgb: 255, 255, 255;
-    --font-pretendard: var(--font-pretendard), -apple-system, BlinkMacSystemFont, system-ui, Roboto,
-        'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+  --foreground-rgb: 0, 0, 0;
+  --background-rgb: 255, 255, 255;
+  --font-pretendard: var(--font-pretendard), -apple-system, BlinkMacSystemFont, system-ui, Roboto,
+    'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
 }
 
 /* 리스트 마커 제거 */
 ul,
 ol {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 html,
 body {
-    height: 100vh;
-    height: 100dvh;
-    margin: 0;
-    padding: 0;
-    font-family: var(--font-pretendard);
+  height: 100vh;
+  height: 100dvh;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-pretendard);
 }
 
 body {
-    color: rgb(var(--foreground-rgb));
-    background: rgb(var(--background-rgb));
-    overflow: hidden;
+  color: rgb(var(--foreground-rgb));
+  background: rgb(var(--background-rgb));
+  overflow: hidden;
 }
 
 main {
-    min-height: 100vh;
-    min-height: 100dvh;
-    display: flex;
-    flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
 }
 
 /* 공통 스크롤바 스타일 */
 ::-webkit-scrollbar {
-    width: 6px;
-    height: 6px;
+  width: 6px;
+  height: 6px;
 }
 
 ::-webkit-scrollbar-track {
-    background: rgba(0, 0, 0, 0.05);
-    border-radius: 3px;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: rgba(156, 163, 175, 0.5);
-    border-radius: 3px;
+  background: rgba(156, 163, 175, 0.5);
+  border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: rgba(107, 114, 128, 0.7);
+  background: rgba(107, 114, 128, 0.7);
 }
 
 * {
-    scrollbar-width: thin;
-    scrollbar-color: rgba(156, 163, 175, 0.5) rgba(0, 0, 0, 0.05);
+  scrollbar-width: thin;
+  scrollbar-color: rgba(156, 163, 175, 0.5) rgba(0, 0, 0, 0.05);
 }
 
 /* RTL 스크롤바 위치 */
 [dir='rtl'] .overflow-y-auto {
-    direction: rtl;
+  direction: rtl;
 }
 
 [dir='rtl'] .overflow-y-auto > * {
-    direction: ltr;
+  direction: ltr;
 }
 
 /* 언어별 폰트 적용 */
 :lang(ko) {
-    font-family: var(--font-ko);
+  font-family: var(--font-ko);
 }
 
 :lang(en) {
-    font-family: var(--font-en);
+  font-family: var(--font-en);
 }
 
 :lang(ar) {
-    font-family: var(--font-ar);
-    direction: rtl;
+  font-family: var(--font-ar);
+  direction: rtl;
 }
