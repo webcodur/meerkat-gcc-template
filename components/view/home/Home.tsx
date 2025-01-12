@@ -1,5 +1,6 @@
 'use client';
 
+import { AnimatedBox } from '@/components/ui/AnimatedBox';
 const Home = () => {
   return (
     <div className="absolute top-0 start-0 flex w-full h-full p-8 items-center justify-center">
@@ -8,6 +9,7 @@ const Home = () => {
         <div className="flex flex-col w-full h-full p-8 items-center justify-center">
           <div className="flex flex-col w-full h-full p-8 items-center justify-center">
             <>출입차량사진 및 정보</>
+            <AnimatedBox />
           </div>
           <div className="flex flex-col w-full h-full p-8 items-center justify-center">
             <>금일 입출차 현황</>
