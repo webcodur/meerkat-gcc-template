@@ -3,12 +3,12 @@ import { atomWithStorage } from 'jotai/utils';
 import type { SubMenuItem } from '@/types/sidebar';
 
 interface AuthState {
-    isAuthenticated: boolean;
-    user: {
-        name: string;
-        email: string;
-        image?: string;
-    } | null;
+  isAuthenticated: boolean;
+  user: {
+    name: string;
+    email: string;
+    image?: string;
+  } | null;
 }
 
 type ModalType = 'settings' | 'language' | null;
@@ -25,18 +25,18 @@ export const modalAtom = atom<ModalType>(null);
 export const isPageChangedAtom = atom<boolean>(false);
 
 export const authAtom = atom<AuthState>({
-    isAuthenticated: false,
-    user: null,
+  isAuthenticated: false,
+  user: null,
 });
 
 export const submenuAtom = atom<{
-    isOpen: boolean;
-    items: SubMenuItem[];
-    position: { top: number; start: number } | null;
+  isOpen: boolean;
+  items: SubMenuItem[];
+  position: { top: number; start: number } | null;
 }>({
-    isOpen: false,
-    items: [],
-    position: null,
+  isOpen: false,
+  items: [],
+  position: null,
 });
 
 export const expandedMenuAtom = atom<string | null>(null);

@@ -1,84 +1,94 @@
 button {
-    border: none;
-    display: block;
-    margin: 0;
-    padding: 0;
+  border: none;
+  display: block;
+  margin: 0;
+  padding: 0;
 }
 
 .deep-relief {
-    background-color: #A8ADB3;
-    color: #2B2B2B;
-    font: bold 6em/2em "Helvetica Neue",Arial,Helvetica,Geneva,sans-serif;
-    margin: 0;
-    position: relative;
-    text-align: center;
-    text-shadow: 0 2px 1px rgba(255, 255, 255, 0.7);
-    transition: all 0.2s ease;
-    box-shadow: 0 0 0 4px #1A1A1A inset,
-               0 2px 5px 4px rgba(255, 255, 255, 0.9) inset,
-               0 -2px 5px 4px rgba(0, 0, 0, 0.3) inset,
-               0 4px 8px rgba(0, 0, 0, 0.4),
-               0 8px 10px rgba(0, 0, 0, 0.2);
+  background-color: #a8adb3;
+  color: #2b2b2b;
+  font:
+    bold 6em/2em 'Helvetica Neue',
+    Arial,
+    Helvetica,
+    Geneva,
+    sans-serif;
+  margin: 0;
+  position: relative;
+  text-align: center;
+  text-shadow: 0 2px 1px rgba(255, 255, 255, 0.7);
+  transition: all 0.2s ease;
+  box-shadow:
+    0 0 0 4px #1a1a1a inset,
+    0 2px 5px 4px rgba(255, 255, 255, 0.9) inset,
+    0 -2px 5px 4px rgba(0, 0, 0, 0.3) inset,
+    0 4px 8px rgba(0, 0, 0, 0.4),
+    0 8px 10px rgba(0, 0, 0, 0.2);
 }
 
 .deep-relief.linear {
-    border-radius: 0.5em;
-    font-size: 4em;
-    height: 80px;
-    width: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-image: repeating-linear-gradient(90deg, 
-                            rgba(255, 255, 255, 0) 0%,
-                            rgba(255, 255, 255, 0) 6%,
-                            rgba(255, 255, 255, 0.1) 7.5%),
-                        repeating-linear-gradient(90deg,
-                            transparent 0%,
-                            transparent 4%,
-                            rgba(0, 0, 0, 0.03) 4.5%),
-                        repeating-linear-gradient(90deg,
-                            rgba(255, 255, 255, 0) 0%,
-                            rgba(255, 255, 255, 0) 1.2%,
-                            rgba(255, 255, 255, 0.15) 2.2%);
+  border-radius: 0.5em;
+  font-size: 4em;
+  height: 80px;
+  width: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: repeating-linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0) 6%,
+      rgba(255, 255, 255, 0.1) 7.5%
+    ),
+    repeating-linear-gradient(90deg, transparent 0%, transparent 4%, rgba(0, 0, 0, 0.03) 4.5%),
+    repeating-linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0) 1.2%,
+      rgba(255, 255, 255, 0.15) 2.2%
+    );
 }
 
 .deep-relief.linear.oval {
-    border-radius: 50%;
-    font-family: Georgia,"Times New Roman",Times,serif;
-    font-size: 3em;
-    font-style: italic;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0;
-    width: 70px;
+  border-radius: 50%;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 3em;
+  font-style: italic;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  width: 70px;
 }
 
 .deep-relief:active {
-    background-color: #B8B8B8;
-    color: #242424;
-    text-shadow: 0 -1px 0 rgba(102, 102, 102, 0.7), 0 2px 1px rgba(255, 255, 255, 0.3);
-    box-shadow: 0 0 0 4px #242424 inset,
-               0 1px 3px 2px rgba(38, 38, 38, 0.95) inset,
-               0 1px 2px 3px rgba(0, 0, 0, 0.4) inset,
-               0 2px 1px rgba(255, 255, 255, 0.5) inset,
-               0 -2px 4px 2px rgba(0, 0, 0, 0.3),
-               0 2px 4px 2px rgba(255, 255, 255, 0.3);
+  background-color: #b8b8b8;
+  color: #242424;
+  text-shadow:
+    0 -1px 0 rgba(102, 102, 102, 0.7),
+    0 2px 1px rgba(255, 255, 255, 0.3);
+  box-shadow:
+    0 0 0 4px #242424 inset,
+    0 1px 3px 2px rgba(38, 38, 38, 0.95) inset,
+    0 1px 2px 3px rgba(0, 0, 0, 0.4) inset,
+    0 2px 1px rgba(255, 255, 255, 0.5) inset,
+    0 -2px 4px 2px rgba(0, 0, 0, 0.3),
+    0 2px 4px 2px rgba(255, 255, 255, 0.3);
 }
 
 .btn-small {
-    width: 50px !important;
-    height: 30px !important;
+  width: 50px !important;
+  height: 30px !important;
 }
 
 .btn-medium {
-    width: 70px !important;
-    height: 40px !important;
+  width: 70px !important;
+  height: 40px !important;
 }
 
 .btn-large {
-    width: 90px !important;
-    height: 50px !important;
-} 
+  width: 90px !important;
+  height: 50px !important;
+}

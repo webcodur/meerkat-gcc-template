@@ -68,14 +68,17 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
   // 최소 로딩 (웹서비스 로딩 애니메이션) 완료 및 컨텐츠 표시
   useEffect(() => {
     setIsMounted(true);
-    const timer = setTimeout(() => {
-      setIsMinLoadingComplete(true);
-      // 최소 로딩 완료 후 컨텐츠를 서서히 표시
-      const showTimer = setTimeout(() => {
-        setShowContent(true);
-      }, 100);
-      return () => clearTimeout(showTimer);
-    }, fi + md + fo);
+    const timer = setTimeout(
+      () => {
+        setIsMinLoadingComplete(true);
+        // 최소 로딩 완료 후 컨텐츠를 서서히 표시
+        const showTimer = setTimeout(() => {
+          setShowContent(true);
+        }, 100);
+        return () => clearTimeout(showTimer);
+      },
+      fi + md + fo
+    );
     return () => clearTimeout(timer);
   }, []);
 

@@ -1,5 +1,5 @@
 export interface GeoInfo {
-    country?: string;
-    city?: string;
-    timezone?: string;
+  country?: string;
+  city?: string;
+  timezone?: string;
 }

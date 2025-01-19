@@ -7,7 +7,7 @@ interface MetallicPatternHorizonProps {
 
 const MetallicPatternHorizon = ({ children, className = '' }: MetallicPatternHorizonProps) => {
   return (
-    <div 
+    <div
       className={`relative w-full h-64 ${className}`}
       style={{
         backgroundImage: `
@@ -41,7 +41,7 @@ const MetallicPatternHorizon = ({ children, className = '' }: MetallicPatternHor
             rgba(95, 95, 95, 0.5),
             rgba(170, 170, 170, 0.26) 4.5px
           )
-        `
+        `,
       }}
     >
       {children}

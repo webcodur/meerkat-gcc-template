@@ -1,37 +1,37 @@
 {
-    "setting": "إعدادات",
-    "logout": "تسجيل خروج",
-    "login": "تسجيل دخول",
-    "change_profile": "تغيير الملف الشخصي",
-    "account_management": "إدارة الحساب",
-    "sidebar_title": "ميركات-GCC",
-    "sidebar_menu_parking_management": "إدارة مواقف السيارات",
-    "sidebar_menu_user_management": "إدارة المستخدمين",
-    "Settings": "إعدادات",
-    "language": "اللغة",
-    "language_en": "الإنجليزية",
-    "language_ar": "العربية",
-    "language_ko": "الكورية",
-    "theme": "المظهر",
-    "theme_light": "فاتح",
-    "theme_dark": "داكن",
-    "close": "إغلاق",
-    "About": {
-        "title": "حول المشروع",
-        "exploreMore": "اكتشف المزيد"
-    },
-    "parking_info": "معلومات موقف السيارات",
-    "worker_management": "إدارة العمال",
-    "parking_policy": "إعدادات سياسة وقوف السيارات",
-    "user_submenu_1": "القائمة الفرعية للمستخدم 1",
-    "user_submenu_2": "القائمة الفرعية للمستخدم 2",
-    "Error": {
-        "pageNotFound": "الصفحة غير موجودة",
-        "pageNotFoundDesc": "الصفحة التي طلبتها غير موجودة أو تم نقلها.",
-        "backToHome": "العودة إلى الصفحة الرئيسية"
-    },
-    "Pagination": {
-        "darkMode": "الوضع الداكن",
-        "lightMode": "الوضع الفاتح"
-    }
+  "setting": "إعدادات",
+  "logout": "تسجيل خروج",
+  "login": "تسجيل دخول",
+  "change_profile": "تغيير الملف الشخصي",
+  "account_management": "إدارة الحساب",
+  "sidebar_title": "ميركات-GCC",
+  "sidebar_menu_parking_management": "إدارة مواقف السيارات",
+  "sidebar_menu_user_management": "إدارة المستخدمين",
+  "Settings": "إعدادات",
+  "language": "اللغة",
+  "language_en": "الإنجليزية",
+  "language_ar": "العربية",
+  "language_ko": "الكورية",
+  "theme": "المظهر",
+  "theme_light": "فاتح",
+  "theme_dark": "داكن",
+  "close": "إغلاق",
+  "About": {
+    "title": "حول المشروع",
+    "exploreMore": "اكتشف المزيد"
+  },
+  "parking_info": "معلومات موقف السيارات",
+  "worker_management": "إدارة العمال",
+  "parking_policy": "إعدادات سياسة وقوف السيارات",
+  "user_submenu_1": "القائمة الفرعية للمستخدم 1",
+  "user_submenu_2": "القائمة الفرعية للمستخدم 2",
+  "Error": {
+    "pageNotFound": "الصفحة غير موجودة",
+    "pageNotFoundDesc": "الصفحة التي طلبتها غير موجودة أو تم نقلها.",
+    "backToHome": "العودة إلى الصفحة الرئيسية"
+  },
+  "Pagination": {
+    "darkMode": "الوضع الداكن",
+    "lightMode": "الوضع الفاتح"
+  }
 }

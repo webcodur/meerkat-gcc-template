@@ -1,20 +1,20 @@
-'use client'
+'use client';
 
-import { Article, ColumnId, columns } from '@/components/ui/paginatedTable/types'
-import { themeStyles } from '@/components/ui/paginatedTable/themeStyles'
+import { Article, ColumnId, columns } from '@/components/ui/paginatedTable/types';
+import { themeStyles } from '@/components/ui/paginatedTable/themeStyles';
 
 interface DataTableProps {
-  theme: 'dark' | 'light'
-  currentItems: Article[]
+  theme: 'dark' | 'light';
+  currentItems: Article[];
 }
 
 // 타입 안전성을 위한 헬퍼 함수
 const getColumnValue = (article: Article, columnId: ColumnId): string => {
-  return String(article[columnId])
-}
+  return String(article[columnId]);
+};
 
 export const DataTable = ({ theme, currentItems }: DataTableProps) => {
-  const styles = themeStyles[theme]
+  const styles = themeStyles[theme];
 
   return (
     <div className={styles.table.wrapper}>
@@ -22,14 +22,12 @@ export const DataTable = ({ theme, currentItems }: DataTableProps) => {
         <thead>
           <tr className={styles.table.header}>
             {columns.map((column) => (
-              <th 
+              <th
                 key={column.id}
                 style={{ width: column.width }}
                 className={`${styles.table.headerText} h-12 px-4 align-middle`}
               >
-                <div className="truncate">
-                  {column.label}
-                </div>
+                <div className="truncate">{column.label}</div>
               </th>
             ))}
           </tr>
@@ -38,15 +36,13 @@ export const DataTable = ({ theme, currentItems }: DataTableProps) => {
           {currentItems.map((article) => (
             <tr key={article.id} className={styles.table.row}>
               {columns.map((column) => (
-                <td 
+                <td
                   key={column.id}
                   style={{ width: column.width }}
                   className={`${styles.table.cell} h-16 px-4 align-middle`}
                   title={getColumnValue(article, column.id)}
                 >
-                  <div className="truncate">
-                    {getColumnValue(article, column.id)}
-                  </div>
+                  <div className="truncate">{getColumnValue(article, column.id)}</div>
                 </td>
               ))}
             </tr>
@@ -54,5 +50,5 @@ export const DataTable = ({ theme, currentItems }: DataTableProps) => {
         </tbody>
       </table>
     </div>
-  )
-} 
+  );
+};

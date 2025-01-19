@@ -35,16 +35,16 @@
 
 - `handleGroupMove`: 페이지 그룹 단위로 이동
   - 파라미터: `direction` ('first' | 'prev' | 'next' | 'last')
-  
+
 #### 이동 방향별 동작
 
 1. `first`: 첫 페이지(1)로 이동
 2. `prev`: 이전 그룹의 첫 페이지로 이동
-   - `previousGroupFirstPage` = max(((activeButtonGroupIndex - 2) * VISIBLE_BUTTON_COUNT) + 1, 1)
+   - `previousGroupFirstPage` = max(((activeButtonGroupIndex - 2) \* VISIBLE_BUTTON_COUNT) + 1, 1)
 3. `next`: 다음 그룹의 첫 페이지로 이동
-   - `nextGroupFirstPage` = min(activeButtonGroupIndex * VISIBLE_BUTTON_COUNT + 1, totalPageCount)
+   - `nextGroupFirstPage` = min(activeButtonGroupIndex \* VISIBLE_BUTTON_COUNT + 1, totalPageCount)
 4. `last`: 마지막 그룹의 첫 페이지로 이동
-   - `lastGroupFirstPage` = (totalButtonGroupCount - 1) * VISIBLE_BUTTON_COUNT + 1
+   - `lastGroupFirstPage` = (totalButtonGroupCount - 1) \* VISIBLE_BUTTON_COUNT + 1
 
 ## 예시
 

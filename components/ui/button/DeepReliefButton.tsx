@@ -11,12 +11,17 @@ interface DeepReliefButtonProps {
   fontSize?: number;
 }
 
-const DeepReliefButton: React.FC<DeepReliefButtonProps> = ({ variant, children, width, height, fontSize }) => {
-  const baseClass = "deep-relief";
-  const variantClass = variant === 'radial' ? 'radial' : 
-                      variant === 'oval' ? 'linear oval' : 
-                      'linear';
-  
+const DeepReliefButton: React.FC<DeepReliefButtonProps> = ({
+  variant,
+  children,
+  width,
+  height,
+  fontSize,
+}) => {
+  const baseClass = 'deep-relief';
+  const variantClass =
+    variant === 'radial' ? 'radial' : variant === 'oval' ? 'linear oval' : 'linear';
+
   const style = {
     width: width ? `${width}px` : undefined,
     height: height ? `${height}px` : undefined,
@@ -30,4 +35,4 @@ const DeepReliefButton: React.FC<DeepReliefButtonProps> = ({ variant, children, 
   );
 };
 
-export default DeepReliefButton; 
+export default DeepReliefButton;

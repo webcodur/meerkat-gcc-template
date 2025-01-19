@@ -58,11 +58,7 @@ useEffect(() => {
 ## 사용 예시
 
 ```tsx
-<MetallicModal
-  isOpen={isOpen}
-  onClose={onClose}
-  title="모달 제목"
->
+<MetallicModal isOpen={isOpen} onClose={onClose} title="모달 제목">
   모달 내용
 </MetallicModal>
 ```

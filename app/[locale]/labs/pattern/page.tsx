@@ -1,10 +1,8 @@
-import React from 'react'
-import Pattern from '@/components/view/labs/pattern/Pattern'
+import React from 'react';
+import Pattern from '@/components/view/labs/pattern/Pattern';
 
 const page = () => {
-  return (
-    <Pattern />
-  )
-}
+  return <Pattern />;
+};
 
-export default page
+export default page;

@@ -1,37 +1,37 @@
 {
-    "setting": "Settings",
-    "logout": "Logout",
-    "login": "Login",
-    "change_profile": "Change Profile",
-    "account_management": "Account Management",
-    "sidebar_title": "MEERKAT-GCC",
-    "sidebar_menu_parking_management": "Parking Management",
-    "sidebar_menu_user_management": "User Management",
-    "Settings": "Settings",
-    "language": "Language",
-    "language_en": "English",
-    "language_ar": "Arabic",
-    "language_ko": "Korean",
-    "theme": "Theme",
-    "theme_light": "Light",
-    "theme_dark": "Dark",
-    "close": "Close",
-    "About": {
-        "title": "About Project",
-        "exploreMore": "Explore More"
-    },
-    "parking_info": "Parking Information",
-    "worker_management": "Worker Management",
-    "parking_policy": "Parking Policy Settings",
-    "user_submenu_1": "User Submenu 1",
-    "user_submenu_2": "User Submenu 2",
-    "Error": {
-        "pageNotFound": "Page Not Found",
-        "pageNotFoundDesc": "The page you requested could not be found or has been moved.",
-        "backToHome": "Back to Home"
-    },
-    "Pagination": {
-        "darkMode": "Dark Mode",
-        "lightMode": "Light Mode"
-    }
+  "setting": "Settings",
+  "logout": "Logout",
+  "login": "Login",
+  "change_profile": "Change Profile",
+  "account_management": "Account Management",
+  "sidebar_title": "MEERKAT-GCC",
+  "sidebar_menu_parking_management": "Parking Management",
+  "sidebar_menu_user_management": "User Management",
+  "Settings": "Settings",
+  "language": "Language",
+  "language_en": "English",
+  "language_ar": "Arabic",
+  "language_ko": "Korean",
+  "theme": "Theme",
+  "theme_light": "Light",
+  "theme_dark": "Dark",
+  "close": "Close",
+  "About": {
+    "title": "About Project",
+    "exploreMore": "Explore More"
+  },
+  "parking_info": "Parking Information",
+  "worker_management": "Worker Management",
+  "parking_policy": "Parking Policy Settings",
+  "user_submenu_1": "User Submenu 1",
+  "user_submenu_2": "User Submenu 2",
+  "Error": {
+    "pageNotFound": "Page Not Found",
+    "pageNotFoundDesc": "The page you requested could not be found or has been moved.",
+    "backToHome": "Back to Home"
+  },
+  "Pagination": {
+    "darkMode": "Dark Mode",
+    "lightMode": "Light Mode"
+  }
 }

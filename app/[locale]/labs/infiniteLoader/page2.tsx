@@ -71,8 +71,8 @@ const InfiniteLoader = () => {
         {isFetchingNextPage
           ? '로딩 중...'
           : hasNextPage
-          ? '스크롤하여 더 보기'
-          : '모든 데이터를 불러왔습니다'}
+            ? '스크롤하여 더 보기'
+            : '모든 데이터를 불러왔습니다'}
       </div>
     </div>
   );

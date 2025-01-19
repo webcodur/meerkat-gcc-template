@@ -29,25 +29,35 @@
 /* 언어별 폰트 적용 */
 @font-face {
   font-family: 'MultiLang';
-  src: local('Pretendard'), url('/fonts/Pretendard.woff2') format('woff2');
+  src:
+    local('Pretendard'),
+    url('/fonts/Pretendard.woff2') format('woff2');
   unicode-range: U+AC00-D7AF, U+1100-11FF, U+3130-318F;
 }
 
 @font-face {
   font-family: 'MultiLang';
-  src: local('DM Serif Text'), url('/fonts/DMSerifText.woff2') format('woff2');
+  src:
+    local('DM Serif Text'),
+    url('/fonts/DMSerifText.woff2') format('woff2');
   unicode-range: U+0000-007F;
 }
 
 @font-face {
   font-family: 'MultiLang';
-  src: local('Cairo'), url('/fonts/Cairo.woff2') format('woff2');
+  src:
+    local('Cairo'),
+    url('/fonts/Cairo.woff2') format('woff2');
   unicode-range: U+0600-06FF, U+0750-077F, U+08A0-08FF, U+FB50-FDFF, U+FE70-FEFF;
 }
 
 /* 기본 스타일 */
 html {
-  font-family: 'MultiLang', system-ui, -apple-system, sans-serif;
+  font-family:
+    'MultiLang',
+    system-ui,
+    -apple-system,
+    sans-serif;
 }
 
 body {

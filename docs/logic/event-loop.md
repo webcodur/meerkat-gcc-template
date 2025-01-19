@@ -81,14 +81,14 @@ Next.js 애플리케이션에서 페이지 렌더링 완료를 정확하게 감�
 
 ```typescript
 useEffect(() => {
-    setIsNavigating(true);  // 1. 상태 업데이트 (동기)
-    
-    Promise.resolve().then(() => {
-        // 3. 마이크로태스크로 실행 (렌더링 완료 후)
-        setIsNavigating(false);
-        console.log('페이지 로딩 완료');
-    });
-    // 2. React 렌더링 발생
+  setIsNavigating(true); // 1. 상태 업데이트 (동기)
+
+  Promise.resolve().then(() => {
+    // 3. 마이크로태스크로 실행 (렌더링 완료 후)
+    setIsNavigating(false);
+    console.log('페이지 로딩 완료');
+  });
+  // 2. React 렌더링 발생
 }, [pathname, searchParams]);
 ```
 

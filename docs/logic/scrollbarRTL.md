@@ -18,39 +18,39 @@
 
 #### 1. 전역 스크롤바 스타일 (globals.css)
 
-``` css
+```css
 /* 공통 스크롤바 스타일 */
 ::-webkit-scrollbar {
-    width: 6px;
-    height: 6px;
+  width: 6px;
+  height: 6px;
 }
 
 ::-webkit-scrollbar-track {
-    background: rgba(0, 0, 0, 0.05);
-    border-radius: 3px;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: rgba(156, 163, 175, 0.5);
-    border-radius: 3px;
+  background: rgba(156, 163, 175, 0.5);
+  border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: rgba(107, 114, 128, 0.7);
+  background: rgba(107, 114, 128, 0.7);
 }
 
 * {
-    scrollbar-width: thin;
-    scrollbar-color: rgba(156, 163, 175, 0.5) rgba(0, 0, 0, 0.05);
+  scrollbar-width: thin;
+  scrollbar-color: rgba(156, 163, 175, 0.5) rgba(0, 0, 0, 0.05);
 }
 
 /* RTL 스크롤바 위치 제어 */
-[dir="rtl"] .overflow-y-auto {
-    direction: rtl;
+[dir='rtl'] .overflow-y-auto {
+  direction: rtl;
 }
 
-[dir="rtl"] .overflow-y-auto > * {
-    direction: ltr;
+[dir='rtl'] .overflow-y-auto > * {
+  direction: ltr;
 }
 ```
 
@@ -58,19 +58,19 @@
 
 ```tsx
 <main dir={dir} className="relative flex-1 w-full transition-all duration-200">
-    <div className="absolute inset-0 px-6 overflow-y-auto">
-        {children}
-    </div>
+  <div className="absolute inset-0 px-6 overflow-y-auto">{children}</div>
 </main>
 ```
 
 ## 작동 방식
 
 1. **방향 설정**
+
    - `dir` 속성을 통해 문서의 기본 방향을 설정
    - RTL 모드에서는 `dir="rtl"`, LTR 모드에서는 `dir="ltr"` 적용
 
 2. **스크롤바 위치 제어**
+
    - RTL 모드: 스크롤바가 좌측에 위치
    - LTR 모드: 스크롤바가 우측에 위치
    - 이는 `direction` CSS 속성을 통해 자동으로 처리됨
@@ -82,11 +82,13 @@
 ## 주의사항
 
 1. **브라우저 호환성**
+
    - Firefox: `scrollbar-width`와 `scrollbar-color` 속성 사용
    - Webkit 기반: `::-webkit-scrollbar` 관련 속성 사용
    - 두 가지 방식을 모두 구현하여 크로스 브라우저 지원
 
 2. **레이아웃 고려사항**
+
    - 스크롤바로 인한 콘텐츠 밀림 현상 방지
    - `overflow-y-auto`를 사용하여 필요한 경우에만 스크롤바 표시
 

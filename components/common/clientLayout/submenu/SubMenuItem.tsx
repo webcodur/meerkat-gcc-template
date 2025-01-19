@@ -11,61 +11,61 @@ import { usePathname } from 'next/navigation';
 import { useAtom } from 'jotai';
 import { submenuAtom, expandedMenuAtom, isPageChangedAtom } from '@/atoms';
 
-
 interface SubMenuItemProps {
-    item: SubMenuItemType;
+  item: SubMenuItemType;
 }
 
 export default function SubMenuItem({ item }: SubMenuItemProps) {
-    const pathname = usePathname();
-    const pathWithoutLocale = pathname.slice(3)
-    const isActive = pathWithoutLocale === item.path
-    const [, setSubmenu] = useAtom(submenuAtom);
-    const [, setExpandedMenu] = useAtom(expandedMenuAtom);
-    const [, setIsPageChanged] = useAtom(isPageChangedAtom);
-    
-    const handleClick = () => {
-        setIsPageChanged(true);
-        setSubmenu({ isOpen: false, items: [], position: null });
-        setExpandedMenu(null);
-    };
+  const pathname = usePathname();
+  const pathWithoutLocale = pathname.slice(3);
+  const isActive = pathWithoutLocale === item.path;
+  const [, setSubmenu] = useAtom(submenuAtom);
+  const [, setExpandedMenu] = useAtom(expandedMenuAtom);
+  const [, setIsPageChanged] = useAtom(isPageChangedAtom);
 
-    return (
-        <li className="list-none">
-            <Link
-                href={item.path}
-                onClick={handleClick}
-                className={`
+  const handleClick = () => {
+    setIsPageChanged(true);
+    setSubmenu({ isOpen: false, items: [], position: null });
+    setExpandedMenu(null);
+  };
+
+  return (
+    <li className="list-none">
+      <Link
+        href={item.path}
+        onClick={handleClick}
+        className={`
                     block p-2 rounded-lg
                     border-base-content/10
-                    ${isActive 
-                        ? 'bg-base-300 text-primary font-medium shadow-inner border-base-content/10' 
+                    ${
+                      isActive
+                        ? 'bg-base-300 text-primary font-medium shadow-inner border-base-content/10'
                         : 'border-base-100 hover:bg-base-300/70 hover:shadow-sm hover:border-base-content/5'
                     }
                 `}
-            >
-                <div className="flex items-center gap-2">
-                    <div 
-                        className={`
+      >
+        <div className="flex items-center gap-2">
+          <div
+            className={`
                             w-1.5 h-1.5 rounded-full
                             transition-all duration-200
-                            ${isActive 
-                                ? 'bg-primary scale-125' 
+                            ${
+                              isActive
+                                ? 'bg-primary scale-125'
                                 : 'bg-base-content/50 group-hover:bg-base-content/70'
                             }
                         `}
-                    />
-                    <span className={`
+          />
+          <span
+            className={`
                         transition-all duration-200
-                        ${isActive 
-                            ? 'translate-x-0.5' 
-                            : 'group-hover:translate-x-0.5'
-                        }
-                    `}>
-                        {item.title}
-                    </span>
-                </div>
-            </Link>
-        </li>
-    );
-} 
+                        ${isActive ? 'translate-x-0.5' : 'group-hover:translate-x-0.5'}
+                    `}
+          >
+            {item.title}
+          </span>
+        </div>
+      </Link>
+    </li>
+  );
+}
