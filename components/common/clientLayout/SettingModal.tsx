@@ -33,11 +33,7 @@ export default function SettingModal() {
   };
 
   return (
-    <MetallicModal
-      isOpen={modal === 'settings'}
-      onClose={() => setModal(null)}
-      title={t('설정메뉴')}
-    >
+    <MetallicModal isOpen={modal === 'settings'} onClose={() => setModal(null)} title={t('설정')}>
       <div className="space-y-6 relative">
         <div className="space-y-2">
           <label className="text-sm font-medium text-gray-700">{t('테마')}</label>
@@ -46,8 +42,8 @@ export default function SettingModal() {
             onChange={handleThemeChange}
             className="select w-full bg-base-100 cursor-pointer relative z-30 pointer-events-auto"
           >
-            <option value="light">{t('테마_라이트')}</option>
-            <option value="dark">{t('테마_다크')}</option>
+            <option value="light">{t('테마_라이트모드')}</option>
+            <option value="dark">{t('테마_다크모드')}</option>
           </select>
         </div>
       </div>

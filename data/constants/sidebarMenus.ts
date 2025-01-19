@@ -2,20 +2,20 @@ import type { MenuItem } from '@/types/sidebar';
 
 export const getMenuItems = (t: (key: string) => string): MenuItem[] => [
   {
-    title: t('사이드바메뉴_주차관리'),
+    title: t('메인메뉴_주차관리'),
     path: '/parking',
     subMenus: [
-      { title: t('주차정보'), path: '/parking/info' },
-      { title: t('근무자관리'), path: '/parking/workers' },
-      { title: t('주차정책'), path: '/parking/policy' },
+      { title: t('서브메뉴_주차정보'), path: '/parking/info' },
+      { title: t('서브메뉴_근무자관리'), path: '/parking/workers' },
+      { title: t('서브메뉴_주차정책'), path: '/parking/policy' },
     ],
   },
   {
-    title: t('사이드바메뉴_사용자관리'),
+    title: t('메인메뉴_사용자관리'),
     path: '/users',
     subMenus: [
-      { title: t('사용자서브메뉴1'), path: '/users/sub1' },
-      { title: t('사용자서브메뉴2'), path: '/users/sub2' },
+      { title: t('서브메뉴_사용자메뉴1'), path: '/users/sub1' },
+      { title: t('서브메뉴_사용자메뉴2'), path: '/users/sub2' },
     ],
   },
   {
