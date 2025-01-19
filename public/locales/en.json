@@ -2,36 +2,28 @@
   "설정": "Settings",
   "로그아웃": "Logout",
   "로그인": "Login",
-  "계정변경": "Change Profile",
+  "계정변경": "Change Account",
   "계정관리": "Account Management",
-  "사이드바제목": "MEERKAT-GCC",
-  "사이드바메뉴_주차관리": "Parking Management",
-  "사이드바메뉴_사용자관리": "User Management",
-  "설정메뉴": "Settings",
+
+  "서비스_타이틀": "MEERKAT-GCC",
+  "메인메뉴_주차관리": "Parking Management",
+  "메인메뉴_사용자관리": "User Management",
+
   "언어": "Language",
+  "언어_한국어": "Korean",
   "언어_영어": "English",
   "언어_아랍어": "Arabic",
-  "언어_한국어": "Korean",
+
   "테마": "Theme",
-  "테마_라이트": "Light",
-  "테마_다크": "Dark",
-  "닫기": "Close",
-  "소개": {
-    "제목": "About Project",
-    "더보기": "Explore More"
-  },
-  "주차정보": "Parking Information",
-  "근무자관리": "Worker Management",
-  "주차정책": "Parking Policy Settings",
-  "사용자서브메뉴1": "User Submenu 1",
-  "사용자서브메뉴2": "User Submenu 2",
-  "에러": {
-    "페이지없음": "Page Not Found",
-    "페이지없음설명": "The page you requested could not be found or has been moved.",
-    "홈으로": "Back to Home"
-  },
-  "페이지네이션": {
-    "다크모드": "Dark Mode",
-    "라이트모드": "Light Mode"
-  }
+  "테마_다크모드": "Dark Mode",
+  "테마_라이트모드": "Light Mode",
+
+  "서브메뉴_주차정보": "Parking Information",
+  "서브메뉴_근무자관리": "Worker Management",
+  "서브메뉴_주차정책": "Parking Policy",
+  "서브메뉴_사용자메뉴1": "User Submenu 1",
+  "서브메뉴_사용자메뉴2": "User Submenu 2",
+  "페이지없음에러": "Page Not Found",
+  "페이지없음에러설명": "The page you requested could not be found or has been moved.",
+  "홈으로가기": "Back to Home"
 }

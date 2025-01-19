@@ -5,7 +5,7 @@ import LanguageModal from '../LanguageModal';
 import { HiLanguage } from 'react-icons/hi2';
 
 export default function LanguageButton() {
-  const t = useTranslations() as unknown as (key: string) => string;
+  const t = useTranslations();
   const [, setModal] = useAtom(modalAtom);
 
   return (

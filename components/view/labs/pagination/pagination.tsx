@@ -16,14 +16,14 @@ const PaginationPage = () => {
   return (
     <div className="space-y-8 pt-8">
       <div>
-        <h2 className="text-2xl font-bold mb-4">{t('페이지네이션.다크모드')}</h2>
+        <h2 className="text-2xl font-bold mb-4">{t('테마_다크모드')}</h2>
         <div className="bg-gray-900 rounded-xl p-4">
           <MemoizedDarkTable />
         </div>
       </div>
 
       <div>
-        <h2 className="text-2xl font-bold mb-4">{t('페이지네이션.라이트모드')}</h2>
+        <h2 className="text-2xl font-bold mb-4">{t('테마_라이트모드')}</h2>
         <div className="bg-gray-300 rounded-xl p-4">
           <MemoizedLightTable />
         </div>
