@@ -7,7 +7,7 @@ import { useLocale, useTranslations } from 'next-intl';
 import MetallicModal from '@/components/ui/MetallicModal';
 
 export default function LanguageModal() {
-  const t = useTranslations();
+  const t = useTranslations() as unknown as (key: string) => string;
   const currentLocale = useLocale();
   const [lang, setLang] = useAtom(langAtom);
   const [, setDir] = useAtom(dirAtom);
@@ -31,11 +31,7 @@ export default function LanguageModal() {
   };
 
   return (
-    <MetallicModal
-      isOpen={modal === 'language'}
-      onClose={() => setModal(null)}
-      title={t('language')}
-    >
+    <MetallicModal isOpen={modal === 'language'} onClose={() => setModal(null)} title={t('언어')}>
       <div className="space-y-6 relative">
         <div className="space-y-2">
           {[

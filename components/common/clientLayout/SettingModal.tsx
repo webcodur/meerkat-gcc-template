@@ -7,7 +7,7 @@ import { useTranslations } from 'next-intl';
 import MetallicModal from '@/components/ui/MetallicModal';
 
 export default function SettingModal() {
-  const t = useTranslations();
+  const t = useTranslations() as unknown as (key: string) => string;
   const [theme, setTheme] = useAtom(themeAtom);
   const [modal, setModal] = useAtom(modalAtom);
 
@@ -36,18 +36,18 @@ export default function SettingModal() {
     <MetallicModal
       isOpen={modal === 'settings'}
       onClose={() => setModal(null)}
-      title={t('Settings')}
+      title={t('설정메뉴')}
     >
       <div className="space-y-6 relative">
         <div className="space-y-2">
-          <label className="text-sm font-medium text-gray-700">{t('theme')}</label>
+          <label className="text-sm font-medium text-gray-700">{t('테마')}</label>
           <select
             value={theme}
             onChange={handleThemeChange}
             className="select w-full bg-base-100 cursor-pointer relative z-30 pointer-events-auto"
           >
-            <option value="light">{t('theme_light')}</option>
-            <option value="dark">{t('theme_dark')}</option>
+            <option value="light">{t('테마_라이트')}</option>
+            <option value="dark">{t('테마_다크')}</option>
           </select>
         </div>
       </div>

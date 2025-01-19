@@ -14,7 +14,7 @@ export default function Breadcrumb() {
     ? 'ms-[0px] transition-[margin] duration-400 ease-in-out'
     : 'ms-[30px] transition-[margin] duration-400 ease-in';
 
-  const t = useTranslations();
+  const t = useTranslations() as unknown as (key: string) => string;
   const menuItems = getMenuItems(t);
 
   const currentMenu = menuItems.find(

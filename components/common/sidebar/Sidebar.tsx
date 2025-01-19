@@ -12,7 +12,7 @@ import SidebarLogo from './SidebarLogo';
 
 export default function Sidebar() {
   // 다국어 번역 훅 초기화
-  const t = useTranslations();
+  const t = useTranslations() as unknown as (key: string) => string;
 
   // 사이드바 메뉴 아이템 목록 가져오기
   const menuItems = getMenuItems(t);

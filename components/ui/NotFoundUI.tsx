@@ -7,7 +7,7 @@ interface NotFoundUIProps {
 }
 
 export default function NotFoundUI({ locale }: NotFoundUIProps) {
-  const t = useTranslations('Error');
+  const t = useTranslations() as unknown as (key: string) => string;
 
   return (
     <div className="absolute inset-0 flex items-center justify-center">
@@ -23,14 +23,14 @@ export default function NotFoundUI({ locale }: NotFoundUIProps) {
           </h1>
 
           {/* 페이지를 찾을 수 없습니다 */}
-          <h2 className="text-2xl font-semibold text-gray-700">{t('pageNotFound')}</h2>
+          <h2 className="text-2xl font-semibold text-gray-700">{t('에러.페이지없음')}</h2>
 
           {/* 요청하신 페이지가 존재하지 않거나 이동되었을 수 있습니다. */}
-          <p className="text-gray-600">{t('pageNotFoundDesc')}</p>
+          <p className="text-gray-600">{t('에러.페이지없음설명')}</p>
 
           {/* 홈으로 돌아가기 */}
           <div>
-            <MetallicButton href={`/${locale}`}>{t('backToHome')}</MetallicButton>
+            <MetallicButton href={`/${locale}`}>{t('에러.홈으로')}</MetallicButton>
           </div>
         </div>
       </MetallicCard>

@@ -11,19 +11,19 @@ const MemoizedDarkTable = memo(PaginatedTableDark);
 const MemoizedLightTable = memo(PaginatedTableLight);
 
 const PaginationPage = () => {
-  const t = useTranslations('Pagination');
+  const t = useTranslations() as unknown as (key: string) => string;
 
   return (
     <div className="space-y-8 pt-8">
       <div>
-        <h2 className="text-2xl font-bold mb-4">{t('darkMode')}</h2>
+        <h2 className="text-2xl font-bold mb-4">{t('페이지네이션.다크모드')}</h2>
         <div className="bg-gray-900 rounded-xl p-4">
           <MemoizedDarkTable />
         </div>
       </div>
 
       <div>
-        <h2 className="text-2xl font-bold mb-4">{t('lightMode')}</h2>
+        <h2 className="text-2xl font-bold mb-4">{t('페이지네이션.라이트모드')}</h2>
         <div className="bg-gray-300 rounded-xl p-4">
           <MemoizedLightTable />
         </div>
