@@ -115,7 +115,7 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
         {/* RELATIVE CONTENTS */}
         <div className="flex min-h-screen relative">
           <Sidebar />
-          <div className="flex-1 bg-gray-300 relative">
+          <div className="flex-1 bg-gray-200 relative">
             <MainContent>{children}</MainContent>
           </div>
         </div>

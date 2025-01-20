@@ -1,24 +1,17 @@
 'use client';
 
-import { AnimatedBox } from '@/components/ui/AnimatedBox';
+import { DateDisplay } from '@/components/ui/dateDisplay/DateDisplay';
+import { useLocale } from 'next-intl';
+
 const Home = () => {
+  const currentLocale = useLocale();
+
   return (
-    <div className="absolute top-0 start-0 flex w-full h-full p-8 items-center justify-center">
-      {/* 좌측 열 */}
-      <div className="flex flex-col w-full h-full p-8 items-center justify-center">
-        <div className="flex flex-col w-full h-full p-8 items-center justify-center">
-          <div className="flex flex-col w-full h-full p-8 items-center justify-center">
-            <>출입차량사진 및 정보</>
-            <AnimatedBox />
-          </div>
-          <div className="flex flex-col w-full h-full p-8 items-center justify-center">
-            <>금일 입출차 현황</>
-          </div>
-        </div>
-      </div>
-      {/* 우측 열 */}
-      <div className="flex flex-col w-full h-full p-8 items-center justify-center">
-        <>차단기별 설정</>
+    <div className="relative">
+      {/* display 를 둘러싼 컨테이너 */}
+      <div className="flex flex-col w-full h-[720px] p-[100px] items-center justify-center">
+        <DateDisplay date={new Date()} />
+        <div className="mt-4 text-lg">Current Language: {currentLocale}</div>
       </div>
     </div>
   );
