@@ -12,6 +12,7 @@ import SidebarToggle from '@/components/common/clientLayout/fixedContents/Sideba
 import MainContent from '@/components/common/clientLayout/MainContent';
 import LanguageButton from '@/components/common/clientLayout/fixedContents/LanguageButton';
 import LoadingUI from '@/components/ui/LoadingUI';
+import Breadcrumb from '@/components/common/clientLayout/Breadcrumb';
 
 export default function ClientLayout({ children }: { children: React.ReactNode }) {
   /* ============================ 1. HOOKS ============================ */
@@ -115,7 +116,9 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
         {/* RELATIVE CONTENTS */}
         <div className="flex min-h-screen relative">
           <Sidebar />
+
           <div className="flex-1 bg-gray-200 relative">
+            <Breadcrumb />
             <MainContent>{children}</MainContent>
           </div>
         </div>

@@ -1,0 +1,7 @@
+1. metalicPattern_smooth
+2. metalicPattern_brushed
+3. metalicPattern_fineBrushed
+4. metalicPattern_reflective
+5. metalicPattern_diffused
+6. metalicPattern_noise
+7. metalicPattern_softGradient

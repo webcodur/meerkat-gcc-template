@@ -2,7 +2,6 @@
 
 import { useAtom } from 'jotai';
 import { dirAtom, isPageChangedAtom } from '@/atoms';
-import Breadcrumb from '@/components/common/clientLayout/Breadcrumb';
 // import Footer from '@/components/common/clientLayout/Footer';
 
 /**
@@ -23,7 +22,6 @@ export default function MainContent({ children }: { children: React.ReactNode })
   return (
     <main dir={dir} className={`relative flex-1 w-full `}>
       <div className={`absolute inset-0 overflow-y-auto`}>
-        <Breadcrumb />
         <div
           className={`px-10 py-4 h-16 transition-all duration-400 ${
             isPageChanged ? 'opacity-0' : 'opacity-100'
