@@ -12,19 +12,22 @@ export default function SidebarToggle() {
     'fixed top-0',
     isRTL ? 'right-0' : 'left-0',
     'w-[80px] h-[80px]',
-    'transition-all duration-300 cursor-pointer',
-    'hover:bg-base-300',
-    isSidebarOpen ? 'bg-base-300/90' : 'bg-base-300/10',
+    'cursor-pointer',
+    'hover:bg-base-300/80',
+    isSidebarOpen ? 'bg-base-300/90' : 'bg-base-300/50',
+    'bg-[url("/images/metalicBackground4.png")]',
+    'bg-cover bg-center',
     'z-[100]',
   ].join(' ');
 
   const iconClasses = [
-    'h-8 w-8 text-gray-700',
-    'drop-shadow-[0_0_8px_rgba(255,255,255,1)]',
+    'h-8 w-8',
+    'text-black',
+    'drop-shadow-[0_0_8px_rgba(255,255,255,0.8)]',
     'absolute top-[30%]',
     isRTL ? 'right-[30%] translate-x-1/2' : 'left-[30%] -translate-x-1/2',
     '-translate-y-1/2 transition-all duration-300',
-    isSidebarOpen ? 'rotate-180 opacity-100' : 'opacity-50',
+    isSidebarOpen ? 'rotate-180 opacity-100' : 'opacity-80',
   ].join(' ');
 
   return (
