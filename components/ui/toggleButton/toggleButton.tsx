@@ -113,20 +113,18 @@ const Switch: React.FC<SwitchProps> = ({ checked, onChange }) => {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-neutral-300">
-      <label className="block m-5 w-40 h-20 rounded-full" style={toggleStyle}>
-        <input type="checkbox" className="hidden" checked={checked} onChange={handleChange} />
-        <div style={beforePseudo} />
-        <div style={afterPseudo} />
-        <div style={switchStyle}>
-          <div style={switchAfterStyle} />
-          <div style={brushedMetalStyle}>
-            <div style={brushedMetalBeforeStyle} />
-            <div style={brushedMetalAfterStyle} />
-          </div>
+    <label className="block m-5 w-40 h-20 rounded-full" style={toggleStyle}>
+      <input type="checkbox" className="hidden" checked={checked} onChange={handleChange} />
+      <div style={beforePseudo} />
+      <div style={afterPseudo} />
+      <div style={switchStyle}>
+        <div style={switchAfterStyle} />
+        <div style={brushedMetalStyle}>
+          <div style={brushedMetalBeforeStyle} />
+          <div style={brushedMetalAfterStyle} />
         </div>
-      </label>
-    </div>
+      </div>
+    </label>
   );
 };
 
