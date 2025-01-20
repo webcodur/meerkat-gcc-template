@@ -33,7 +33,11 @@ export default function SettingModal() {
   };
 
   return (
-    <MetallicModal isOpen={modal === 'settings'} onClose={() => setModal(null)} title={t('설정')}>
+    <MetallicModal
+      isOpen={modal === 'settings'}
+      onClose={() => setModal(null)}
+      title={t('계정_설정')}
+    >
       <div className="space-y-6 relative">
         <div className="space-y-2">
           <label className="text-sm font-medium text-gray-700">{t('테마')}</label>

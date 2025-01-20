@@ -21,7 +21,7 @@ export default function SettingsButton() {
                     shadow-[0_0_15px_5px_rgba(255,255,255,0.6)] 
                     hover:shadow-[0_0_20px_8px_rgba(255,255,255,0.7)] 
                     border-2 border-white"
-        aria-label={t('설정')}
+        aria-label={t('계정_설정')}
       >
         <div className="absolute inset-0 flex items-center justify-center">
           <FiSettings className="h-6 w-6 text-gray-700 drop-shadow-[0_0_3px_rgba(255,255,255,0.8)]" />

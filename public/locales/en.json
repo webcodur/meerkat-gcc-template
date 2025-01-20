@@ -1,9 +1,8 @@
 {
-  "설정": "Settings",
-  "로그아웃": "Logout",
-  "로그인": "Login",
-  "계정변경": "Change Account",
-  "계정관리": "Account Management",
+  "계정_설정": "Settings",
+  "계정_로그아웃": "Logout",
+  "계정_로그인": "Login",
+  "계정_관리": "Account Management",
 
   "서비스_타이틀": "MEERKAT-GCC",
   "메인메뉴_주차관리": "Parking Management",
@@ -23,7 +22,8 @@
   "서브메뉴_주차정책": "Parking Policy",
   "서브메뉴_사용자메뉴1": "User Submenu 1",
   "서브메뉴_사용자메뉴2": "User Submenu 2",
-  "페이지없음에러": "Page Not Found",
-  "페이지없음에러설명": "The page you requested could not be found or has been moved.",
-  "홈으로가기": "Back to Home"
+
+  "에러_404_페이지없음": "Page Not Found",
+  "에러_404_페이지없음설명": "The page you requested could not be found or has been moved.",
+  "에러_404_홈으로가기": "Back to Home"
 }
