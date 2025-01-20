@@ -1,11 +1,8 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import React, { useState } from 'react';
 
 const KeyframeAnimation = () => {
-  const [isPlaying, setIsPlaying] = useState(false);
-
   return (
     <div className="space-y-6">
       <div className="prose">

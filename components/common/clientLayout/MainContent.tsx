@@ -20,14 +20,8 @@ export default function MainContent({ children }: { children: React.ReactNode })
   const [isPageChanged] = useAtom(isPageChangedAtom);
 
   return (
-    <main
-      dir={dir}
-      className={`
-                relative flex-1 w-full 
-            `}
-    >
+    <main dir={dir} className={`relative flex-1 w-full `}>
       <div className={`absolute inset-0 px-6 overflow-y-auto`}>
-        <Breadcrumb />
         <div
           className={`h-16 transition-all duration-400 ${
             isPageChanged ? 'opacity-0' : 'opacity-100'
@@ -36,6 +30,7 @@ export default function MainContent({ children }: { children: React.ReactNode })
           {children}
         </div>
       </div>
+      <Breadcrumb />
     </main>
   );
 }
