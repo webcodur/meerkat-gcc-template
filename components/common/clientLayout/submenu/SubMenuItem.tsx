@@ -23,7 +23,11 @@ export default function SubMenuItem({ item }: SubMenuItemProps) {
   const [, setExpandedMenu] = useAtom(expandedMenuAtom);
   const [, setIsPageChanged] = useAtom(isPageChangedAtom);
 
-  const handleClick = () => {
+  const handleClick = (e: React.MouseEvent) => {
+    if (isActive) {
+      e.preventDefault();
+      return;
+    }
     setIsPageChanged(true);
     setSubmenu({ isOpen: false, items: [], position: null });
     setExpandedMenu(null);
